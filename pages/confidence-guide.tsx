@@ -12,10 +12,10 @@ const ConfidenceGuid = (props: Props) => {
 
             <div className="flex flex-row ">
      
-  <div className="flex flex-col w-1/6  rounded "><img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1oDObe5_KAUQRepF-nKjznBECQ5DC0hwnG6uovVuGNcJk04ws4P7P5MDWxAHPwNKV-wI&usqp=CAU"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-              className="rounded-lg bg-gray-100 h-16 "
+  <div className="flex flex-col w-1/6  rounded object-cover"><img
+              src="./imgCG/Img4.svg"
+              
+              className="rounded-lg bg-gray-100 h-full "
             /></div>
   <div > <p className=" text-cascade-800 w-full pl-4">
             Self-confidence is easy to spot but hard to develop.
@@ -64,9 +64,9 @@ const ConfidenceGuid = (props: Props) => {
           </p></div>
           <div className="flex flex-col w-1/3 mx-auto rounded ">
             <img
-              src="https://static.vecteezy.com/system/resources/previews/004/492/473/original/time-management-and-deadline-concept-business-woman-planning-events-deadlines-and-agenda-calendar-schedule-organization-process-flat-cartoon-time-management-concept-for-banner-vector.jpg"
+              src="./imgCG/Img5.svg"
               alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-              className="rounded-lg bg-gray-100 h-32"
+              className="rounded-lg bg-white h-32"
             />
           </div></div>
           <hr className='mt-4 mb-4'></hr>
@@ -74,7 +74,7 @@ const ConfidenceGuid = (props: Props) => {
             How to build confidence?
           </h6>
           <div className="flex flex-row ">
-          <div className="bg-froly-100 p-4 w-2/3">
+          <div className="bg-white p-4 w-2/3">
           
           <p className=" text-cascade-800">
             Everyone can learn how to be more confident in different, powerful
@@ -131,22 +131,20 @@ const ConfidenceGuid = (props: Props) => {
           <div className="grid grid-rows-3 w-1/3">
           <div className="flex flex-col h-full mx-auto rounded p-4">
             <img 
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              src="./imgCG/Img6.svg"
               className="rounded-lg bg-gray-100 h-40 object-cover"
             />
           </div>
+          
           <div className="flex flex-col h-full mx-auto rounded p-4 ">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              src="./imgCG/Img7.svg"
               className="rounded-lg bg-gray-100 h-40 object-cover"
             />
           </div>
           <div className="flex flex-col h-full mx-auto rounded p-4">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              src="./imgCG/Img8.svg"
               className="rounded-lg bg-gray-100 h-40 object-cover"
             />
           </div>
@@ -158,7 +156,7 @@ const ConfidenceGuid = (props: Props) => {
           <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
             What are some tips to be more confident?
           </h6>
-          <div className="bg-white-linen p-4 mb-4">
+          <div className="bg-white p-4 mb-4">
          
           <p className=" text-cascade-800">
             Building your confidence takes time and involves plenty of ups and
@@ -214,32 +212,32 @@ const ConfidenceGuid = (props: Props) => {
             saying, don’t refrain from using your hands while speaking to them
             during virtual meetings. It shows them that you’re enthusiastic and
             engaged in the conversation.
-          </p></div><div className='grid grid-cols-3 h-64'>
-          <div className="flex flex-col mx-auto rounded ">
+          </p></div><div className='grid grid-cols-3 '>
+          <div className="flex flex-col mx-auto rounded  ">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-sYgwkFD-xMONJFBXPdMAbkDbLVroHToDvQ&usqp=CAU"
+              src="./imgCG/Img9.svg"
               
-              className="rounded-lg bg-gray-100 h-full"
+              className="rounded-lg bg-white object-cover"
             />
           </div>
-          <div className="flex flex-col  mx-auto rounded ">
+          <div className="flex flex-col  mx-auto rounded  ">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
+              src="./imgCG/Img10.svg"
               
-              className="rounded-lg bg-gray-100 h-full"
+              className="rounded-lg bg-white"
             />
-          </div><div className="flex flex-col mx-auto rounded ">
+          </div><div className="flex flex-col mx-auto rounded  ">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-sYgwkFD-xMONJFBXPdMAbkDbLVroHToDvQ&usqp=CAU"
+              src="./imgCG/Img11.svg"
               
-              className="rounded-lg bg-gray-100 h-full"
+              className="rounded-lg bg-white "
             />
           </div></div>
           <hr className='mt-4 mb-4'></hr>
           <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
             What are the benefits of developing self-confidence?
           </h6>
-          <div className="bg-froly-100 p-4 ">
+          <div className="bg-white p-4 ">
          
           <p className=" text-cascade-800">
             Why do people need to be confident in life? Improved self-confidence
