@@ -1,0 +1,290 @@
+import React from 'react';
+
+type Props = {};
+
+const ConfidenceGuid = (props: Props) => {
+  return (
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl items-center gap-y-16 gap-x-8 py-4 px-4 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+        <div>
+          <h2 className="mb-4 text-4xl tracking-tight font-bold text-center text-froly-400">
+            Confidence Guide</h2>
+
+            <div className="flex flex-row ">
+     
+  <div className="flex flex-col w-1/6  rounded "><img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1oDObe5_KAUQRepF-nKjznBECQ5DC0hwnG6uovVuGNcJk04ws4P7P5MDWxAHPwNKV-wI&usqp=CAU"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              className="rounded-lg bg-gray-100 h-16 "
+            /></div>
+  <div > <p className=" text-cascade-800 w-full pl-4">
+            Self-confidence is easy to spot but hard to develop.
+       
+            You build it piece by piece starting with noticing what you already
+            have and appreciating your wins, no matter how small. It doesn’t
+            happen overnight. Confidence is a belief in oneself, the conviction that one has the ability to meet life's challenges and to succeed—and the willingness to act accordingly.
+          </p></div>
+          
+</div>
+         <hr className='mt-4 mb-4'></hr>
+         <div className='bg-white-linen p-4'>
+         <h1 className='  text-2xl tracking-tight font-bold text-cascade-800'>Contents</h1>
+         <div className="table-of-contents mx-8 border-top">
+          <ul className="list-disc ">
+                          <li className="table-of-contents--item">
+             What is Self-Confidence?
+              </li>
+                          <li className="table-of-contents--item">
+         How to build confidence?
+   
+              </li>
+                          <li className="table-of-contents--item">
+              
+                          What are some tips to be more confident?
+              </li>
+              <li className="table-of-contents--item">
+              
+              <li className="table-of-contents--item">
+            What are the benefits of developing self-confidence?
+ 
+  </li>
+             
+              </li>
+                      </ul>
+        </div></div>
+        <hr className='mt-4'></hr>
+  
+          <h6 className=" mt-8 text-2xl tracking-tight font-bold text-cascade-800">
+            What is Self Confidence?
+          </h6>
+          <div className='grid grid-cols-2'> <div><p className=" text-cascade-800">
+            self-confidence generally refers to a sense of comfort with yourself
+            and your instincts and a belief that you can trust your own
+            abilities, knowledge, and judgment.{' '}
+          </p></div>
+          <div className="flex flex-col w-1/3 mx-auto rounded ">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/004/492/473/original/time-management-and-deadline-concept-business-woman-planning-events-deadlines-and-agenda-calendar-schedule-organization-process-flat-cartoon-time-management-concept-for-banner-vector.jpg"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              className="rounded-lg bg-gray-100 h-32"
+            />
+          </div></div>
+          <hr className='mt-4 mb-4'></hr>
+          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+            How to build confidence?
+          </h6>
+          <div className="flex flex-row ">
+          <div className="bg-froly-100 p-4 w-2/3">
+          
+          <p className=" text-cascade-800">
+            Everyone can learn how to be more confident in different, powerful
+            ways. What may work for some may not work for all, and that's okay.
+            Remember that you can always start small with little steps before
+            taking bold strides. Here are five ways to help build
+            self-confidence:{' '}
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            1. Stop comparing yourself to others
+          </p>
+          <p className="text-cascade-800">
+            Comparing yourself to someone you think is doing better than you can
+            cause you to beat yourself up, judge yourself, or feel bad about
+            yourself. It’s never a good idea to compare yourself to others.{' '}
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            2. Celebrate and reflect on your wins
+          </p>
+          <p className="text-cascade-800">
+            We all want to be successful in our goals but along the journey to
+            reaching our big and ambitious goals, we can feel demotivated
+            sometimes. This is why celebrating small wins along the way is so
+            important in giving us motivation to push through difficulties and
+            move forward.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            3. Embrace your failures and view them as learning opportunities
+          </p>
+          <p className="text-cascade-800">
+            By embracing failure, you are accepting yourself and your situation
+            as a part of life. It is an opportunity for growth, but it is not a
+            measure of your future or self-worth.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            4. Treat yourself with respect
+          </p>
+          <p className="text-cascade-800">
+            Self-respect is loving yourself and treating yourself with care.
+            It’s the result of staying true to your values and not being willing
+            to compromise. The more you engage in behaviors consistent with your
+            beliefs and values, the more you’ll feel fulfilled and confident.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            5. Pursue passions that make you happy
+          </p>
+          <p className="text-cascade-800">
+            By chasing your dreams and finding that passion and drive, you will
+            be happier in all aspects of life. Your workplace attitude will
+            improve, and you’ll be happier outside of the office. All in all,
+            pursuing your passion can be the start of a seriously spectacular
+            life that’s joyful in all realms.
+          </p></div>
+          <div className="grid grid-rows-3 w-1/3">
+          <div className="flex flex-col h-full mx-auto rounded p-4">
+            <img 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              className="rounded-lg bg-gray-100 h-40 object-cover"
+            />
+          </div>
+          <div className="flex flex-col h-full mx-auto rounded p-4 ">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              className="rounded-lg bg-gray-100 h-40 object-cover"
+            />
+          </div>
+          <div className="flex flex-col h-full mx-auto rounded p-4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+              className="rounded-lg bg-gray-100 h-40 object-cover"
+            />
+          </div>
+            </div></div>
+
+        
+          
+          <hr className='mt-4 mb-4'></hr>
+          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+            What are some tips to be more confident?
+          </h6>
+          <div className="bg-white-linen p-4 mb-4">
+         
+          <p className=" text-cascade-800">
+            Building your confidence takes time and involves plenty of ups and
+            downs. As you put in the work toward being confident, here are a few
+            tips to keep in mind during virtual meets:
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            1. Pay attention to how you frame yourself on screen{' '}
+          </p>
+          <p className="text-cascade-800">
+            Virtual meetings allow you to decide how much you want to be visible
+            to the other meeting attendees. It would be perfect if you could
+            frame your image in a way that shows your shoulders, torso, and
+            hands — and not just your head.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            2. Avoid touching the face
+          </p>
+          <p className="text-cascade-800">
+            {' '}
+            Rubbing your eyes, covering your mouth, or playing with your hair
+            shows you're nervous. Try raising your eyebrows to show interest. If
+            you want to show that you agree with what your coworker is saying,
+            lightly nod your head in agreement. Your hands shouldn’t come near
+            your face — keep them on your lap, or take notes to keep them busy
+            (and do something useful).{' '}
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            3. Look at the camera, not the screen{' '}
+          </p>
+          <p className="text-cascade-800">
+            {' '}
+            The proper conduct is to look at the camera because you want to
+            simulate looking into your coworkers’ eyes. Since looking at the
+            camera lens doesn’t feel natural, when talking during meetings,
+            maybe you could alternate between looking directly at the camera and
+            the computer screen, at your coworkers.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            4. Pay attention to your facial expressions
+          </p>
+          <p className="text-cascade-800">
+            Speaking of smiling, during virtual meetings, you should avoid
+            frowning, yawning, staring, or other facial expressions that might
+            indicate hostility or boredom.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            5. Be mindful of your hand gestures
+          </p>
+          <p>
+            {' '}
+            If you want to direct the attention of your coworkers to what you’re
+            saying, don’t refrain from using your hands while speaking to them
+            during virtual meetings. It shows them that you’re enthusiastic and
+            engaged in the conversation.
+          </p></div><div className='grid grid-cols-3 h-64'>
+          <div className="flex flex-col mx-auto rounded ">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-sYgwkFD-xMONJFBXPdMAbkDbLVroHToDvQ&usqp=CAU"
+              
+              className="rounded-lg bg-gray-100 h-full"
+            />
+          </div>
+          <div className="flex flex-col  mx-auto rounded ">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufychyoZyfyiCS9zpJ6i2mlDpYp57frPycw&usqp=CAU"
+              
+              className="rounded-lg bg-gray-100 h-full"
+            />
+          </div><div className="flex flex-col mx-auto rounded ">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-sYgwkFD-xMONJFBXPdMAbkDbLVroHToDvQ&usqp=CAU"
+              
+              className="rounded-lg bg-gray-100 h-full"
+            />
+          </div></div>
+          <hr className='mt-4 mb-4'></hr>
+          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+            What are the benefits of developing self-confidence?
+          </h6>
+          <div className="bg-froly-100 p-4 ">
+         
+          <p className=" text-cascade-800">
+            Why do people need to be confident in life? Improved self-confidence
+            can add many benefits to your life that you may not even realize.
+            The impacts reach both your professional and personal life. Here are
+            four benefits that self-confidence can bring to your life:
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            1. Experience healthy relationships
+          </p>
+          <p className="text-cascade-800">
+            {' '}
+            While confidence is great for loving others, it also helps you show
+            love to yourself. You'll find that you'll have a better
+            understanding of yourself and others.{' '}
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            2. Succeed more in your jobs
+          </p>
+          <p className="text-cascade-800">
+            You will seem at ease in the way you perform. Self-confidence can
+            also help you develop leadership skills because you can easily
+            connect and communicate.
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            3. Welcome new chapters without worry
+          </p>
+          <p className="text-cascade-800">
+            You can better believe in your abilities when testing your limits
+            and trying new things.Their confidence spills over into their
+            decision-making process, making new adventures exciting, not scary.{' '}
+          </p>
+          <p className="mt-4 text-cascade-800 font-medium">
+            4. Experience greater resilience
+          </p>
+          <p className="text-cascade-800">
+            Your self-confidence will help you accept responsibility and
+            understand that you're constantly learning throughout life.
+            Self-confidence doesn’t come from one moment or action and it
+            persists despite the bad moments.
+          </p></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ConfidenceGuid;
