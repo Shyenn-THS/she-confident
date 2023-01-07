@@ -34,3 +34,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Python Models
+__pycache__
+/confidence-classification/ccvenv
+/utils/permisions.json
+

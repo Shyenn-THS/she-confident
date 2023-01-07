@@ -20,12 +20,12 @@ const Home = (props: Props) => {
         interval={5000}
       >
         <div>
-          <img src="https://source.unsplash.com/random/800x400" />
+          <img src="/carousel/1.png" />
           <p className="legend">Empower Women Projects</p>
         </div>
 
         <div>
-          <img src="https://source.unsplash.com/random/800x400" />
+          <img src="/carousel/2.png" />
           <p className="legend">Build your confidence on Camera</p>
         </div>
 

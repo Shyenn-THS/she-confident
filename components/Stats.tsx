@@ -2,6 +2,7 @@ import { PhotoIcon } from '@heroicons/react/24/solid';
 import React, { FC } from 'react';
 import CountUp from 'react-countup';
 import { useActiveListings, useContract } from '@thirdweb-dev/react';
+import { useTotalPublishedProjs } from '../utils/read';
 import { IconBaseProps } from 'react-icons/lib';
 
 type Props = {};
@@ -13,6 +14,7 @@ const Stats = (props: Props) => {
   );
 
   const { data: listings, isLoading } = useActiveListings(contract);
+  const totalProjects = useTotalPublishedProjs();
 
   const StatsCard = ({
     name,
@@ -41,7 +43,15 @@ const Stats = (props: Props) => {
     <section className="p-6 my-6 bg-mandys-pink">
       <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
         <StatsCard name="NFTs" value={listings?.length!} Icon={PhotoIcon} />
-        <StatsCard name="Projects" value={0} Icon={PhotoIcon} />
+        {totalProjects ? (
+          <StatsCard
+            name="Projects"
+            value={totalProjects.toPrecision(2)}
+            Icon={PhotoIcon}
+          />
+        ) : (
+          <StatsCard name="Projects" value={0} Icon={PhotoIcon} />
+        )}
         <StatsCard name="Blogs" value={100} Icon={PhotoIcon} />
         <StatsCard name="NFTs" value={200} Icon={PhotoIcon} />
       </div>

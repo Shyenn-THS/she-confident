@@ -24,7 +24,7 @@ const SupportUs = (props: Props) => {
   });
 
   return (
-    <div className="flex justify-center items-center bg-froly-200 min-h-screen">
+    <div className="flex justify-center items-center bg-froly-400 min-h-screen">
       <div className="h-[650px] my-10 w-96 md:w-4/5 bg-white rounded-lg md:rounded-lg">
         <div className="flex h-full w-full">
           <div className="h-full hidden md:block relative rounded-lg overflow-hidden bg-[url('https://imgur.com/2hR32WP.jpg')] w-full">
@@ -93,7 +93,7 @@ const SupportUs = (props: Props) => {
             <p className="mt-3 font-semibold text-cascade-800">
               I would like to give:
             </p>
-            <div className="flex mt-5 gap-2">
+            <div className="flex -mt-5 gap-2">
               <label
                 onClick={() => setValue('1')}
                 className="h-10 text-gray-700 font-semibold text-sm cursor-pointer transition-all justify-center items-center w-full border-2 flex "
