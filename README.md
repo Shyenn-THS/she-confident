@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# She-Confident by [Shyenn](https://github.com/Shyenn-THS)
 
-## Getting Started
+## Live at: https://she-confident.vercel.app/
 
-First, run the development server:
+#### SheConfident is a platform that empowers women by providing resources to boost self-esteem and confidence, as well as listing their projects for crowdfunding. Our goal is to help women achieve their dreams by offering a range of tools and support services.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Our approach includes using an DL model that helps users improve their voice tone and confidence on camera, as well as sharing their most confident moments with them in the form of a non-fungible token (NFT) that can be listed on our marketplace.
+#### In addition, we offer a decentralized platform for hosting fundraising campaigns, where anyone can list their project and receive support from interested investors and donors.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Technology Used
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Machine Learning Model 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" height="100" width="100" />  &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; 
+### Web Development 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Blockchain (Development and Deployment)
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" height="100" width="100"/> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/polygon/polygon-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; 
+ 
+### Version Control
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="100" width="100" /> 
+          
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;
+          
+          
+          
+          
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## The Team
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [@Meghana Maheshwari](https://www.linkedin.com/in/meghana-maheshwari-ba0779223/) 
+- [@Tanishq Chaturvedi](https://www.linkedin.com/in/m99tanishq/) 
+- [@Harsh Soni](https://www.linkedin.com/in/hashprog) 
+- [@Shivang Mishra](https://www.linkedin.com/in/shivangm24/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Sponsored Tracks Used
+### Polygon: Smart Contract Deployment
+### Filecoin & IPFS: Campaign Image Storage
+### GoDaddy Registry: [shyenn.club](https://she-confident.vercel.app)
+### replit: Created project on replit online IDE
 
-## Deploy on Vercel
+## SheConfident a green Software
+### Our Smart Contract (Solidity) is deployed on Polygon which is a Carbon Negative Blockchain
+### We have used [replit](https://replit.com/) online IDE which limits the carbon emission from physical local devices
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+              
