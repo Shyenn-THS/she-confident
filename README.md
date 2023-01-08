@@ -15,6 +15,7 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" height="100" width="100" />  &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; 
 ### Web Development 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;
+
 ### Blockchain (Development and Deployment)
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" height="100" width="100"/> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/polygon/polygon-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; 
  
@@ -37,4 +38,15 @@
 - [@Tanishq Chaturvedi](https://www.linkedin.com/in/m99tanishq/) 
 - [@Harsh Soni](https://www.linkedin.com/in/hashprog) 
 - [@Shivang Mishra](https://www.linkedin.com/in/shivangm24/)
+
+## Sponsored Tracks Used
+### Polygon: Smart Contract Deployment
+### Filecoin & IPFS: Campaign Image Storage
+### GoDaddy Registry: [shyenn.club](https://she-confident.vercel.app)
+### replit: Created project on replit online IDE
+
+## SheConfident a green Software
+### Our Smart Contract (Solidity) is deployed on Polygon which is a Carbon Negative Blockchain
+### We have used [replit](https://replit.com/) online IDE which limits the carbon emission from physical local devices
+
               
