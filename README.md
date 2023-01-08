@@ -28,7 +28,7 @@
 ### Filecoin & IPFS: Campaign Image Storage
 ### GoDaddy Registry: [shyenn.club](https://she-confident.vercel.app)
 
-## SheConfident a green Software 
+## SheConfident is a green Software 
 ### Our Smart Contract (Solidity) is deployed on Polygon which is a Carbon Negative Blockchain
 
 ## Product Screenshots
@@ -37,9 +37,9 @@
 **![](https://lh4.googleusercontent.com/lUdJTbJdNv1adOX6h9kBUFcGfqKMzgeDDKTY1S4sy2SjzVOJf53KsIC08gL_LMN448U-i1c-zppuNJbyQmoHoE-UoXkBiJoUQf3pDBvueXHtFMOMi8JlpctVl8s8Wlh9jnOxAP3yT_dpEJP-zD9oa0eRnfBgzQVCfzYdNIuc8EvSunuzl7Yl81eQUF0_aQ)**
 
 **![](https://lh6.googleusercontent.com/7r81QfH_WbrvjxFj482mRPmaGWcaWjyOAcaombBp_8qfAEfILxGUP_8_nw1R7qmjtF5L9toN223TbzfrJoD0jaxCYOXnZcNzRHb6WYn2smxbV-x6bEADt3B2AiNH5sKZjDgRsaRPHB7cTs7OdKIqQIhy10PC4FPZMhocyoZ1DUxcvFgTXlMp0Wxvu1_BVA)**
-## Demo Video: 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KT2VlZ85li8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## Demo Video: 
+[![SheConfident by Shyenn](http://img.youtube.com/vi/KT2VlZ85li8/0.jpg)](http://www.youtube.com/watch?v=KT2VlZ85li8 "SheConfident by Shyenn")
 
 ## The Team
 
