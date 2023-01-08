@@ -1,6 +1,6 @@
 # She-Confident by [Shyenn](https://github.com/Shyenn-THS)
 
-## Live at: https://she-confident.vercel.app/
+## Live at: https://www.shyenn.club/
 
 #### SheConfident is a platform that empowers women by providing resources to boost self-esteem and confidence, as well as listing their projects for crowdfunding. Our goal is to help women achieve their dreams by offering a range of tools and support services.
 
@@ -26,7 +26,7 @@
 ## Sponsored Tracks Used
 ### Polygon: Smart Contract Deployment
 ### Filecoin & IPFS: Campaign Image Storage
-### GoDaddy Registry: [shyenn.club](https://she-confident.vercel.app)
+### GoDaddy Registry: [shyenn.club](https://www.shyenn.club/)
 
 ## SheConfident is a green Software 
 ### Our Smart Contract (Solidity) is deployed on Polygon which is a Carbon Negative Blockchain
