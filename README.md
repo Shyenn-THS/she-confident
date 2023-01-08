@@ -28,7 +28,7 @@
 ### Filecoin & IPFS: Campaign Image Storage
 ### GoDaddy Registry: [shyenn.club](https://she-confident.vercel.app)
 
-## SheConfident a green Software 
+## SheConfident is a green Software 
 ### Our Smart Contract (Solidity) is deployed on Polygon which is a Carbon Negative Blockchain
 
 ## The Team
