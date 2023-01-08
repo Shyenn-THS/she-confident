@@ -1,6 +1,13 @@
 # She-Confident by [Shyenn](https://github.com/Shyenn-THS)
 
-#### A Confident booster application that creates a tradable NFT when user hits threshold confidence score && Campaignfunding platform
+## Live at: https://she-confident.vercel.app/
+
+#### SheConfident is a platform that empowers women by providing resources to boost self-esteem and confidence, as well as listing their projects for crowdfunding. Our goal is to help women achieve their dreams by offering a range of tools and support services.
+
+## Overview
+
+#### Our approach includes using an DL model that helps users improve their voice tone and confidence on camera, as well as sharing their most confident moments with them in the form of a non-fungible token (NFT) that can be listed on our marketplace.
+#### In addition, we offer a decentralized platform for hosting fundraising campaigns, where anyone can list their project and receive support from interested investors and donors.
 
 ## Technology Used
 
