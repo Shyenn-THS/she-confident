@@ -29,10 +29,10 @@ const Home = (props: Props) => {
           <p className="legend">Build your confidence on Camera</p>
         </div>
 
-        {/* <div>
-          <img src="https://source.unsplash.com/random/800x400" />
+        <div>
+          <img src="/carousel/3.png" />
           <p className="legend">Legend 3</p>
-        </div> */}
+        </div>
       </Carousel>
       <Stats />
       <About />
