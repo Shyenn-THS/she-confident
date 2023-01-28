@@ -17,8 +17,6 @@ def rectPoints(rect):
 	h = rect.bottom() - y
 	return (x, y, w, h)
 
-
-
 genderModelPath = 'models\genderModel_VGG16.hdf5'
 genderClassifier = load_model(genderModelPath, compile=False)
 genderTargetSize = genderClassifier.input_shape[1:3]
@@ -35,7 +33,13 @@ modelFile = "faceDetection/models/dnn/res10_300x300_ssd_iter_140000.caffemodel"
 configFile = "faceDetection/models/dnn/deploy.prototxt"
 net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 
-def detectFacesWithDNN(frame):
+def detectFacesWithDNN(image):
+	image_data = image.read()
+	# frame = cv2.resize(photo, (1080,720))
+	numpy_array = np.frombuffer(image_data, np.uint8)
+	imageDecoded = cv2.imdecode(numpy_array, cv2.IMREAD_COLOR)
+	frame = cv2.resize(imageDecoded, (1080,720))
+
 	# A neural network that really supports the input value
 	size = (300,300)
 
@@ -74,16 +78,6 @@ def detectFacesWithDNN(frame):
 
 				gender_label = np.argmax(gender_prediction)
 				gender_result = genders[gender_label]["label"]
-				color = genders[gender_label]["color"]
-				cv2.putText(frame, gender_result , (x+5, y1-5),
-				cv2.FONT_HERSHEY_SIMPLEX, 1 , color, 2,   cv2.LINE_AA)
-				cv2.rectangle(frame, (x, y), (x1, y1), color, 2)
+				return gender_result
 			else:
-				cv2.rectangle(frame, (x, y), (x1, y1), color, 2)
-	return frame
-
-photo = cv2.imread("images/mix.jpeg")
-photo = cv2.resize(photo, (1080,720))
-frame = detectFacesWithDNN(photo)
-cv2.imshow("Gender Classification", frame)
-cv2.waitKey(0)
+				return None

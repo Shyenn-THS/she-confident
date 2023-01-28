@@ -1,15 +1,23 @@
 from flask import Flask, render_template, request, jsonify, redirect
 from emotionRecognition import process_frames
+from genderClassificationForImage import detectFacesWithDNN
 import speech_recognition as sr
 from flask_cors import CORS
-# from flask_ngrok import run_with_ngrok
+from flask_ngrok import run_with_ngrok
 import difflib
 import base64
 
 app = Flask(__name__)
-CORS(app, origins=['http://localhost:3000','https://she-confident.vercel.app'])
+
+CORS(app, origins=[
+    'http://localhost:3000',
+    'https://she-confident.vercel.app', 
+    'https://www.shyenn.club', 
+    'https://www.she-confident.shyenn.club'
+])
+
 app.config['CORS_HEADERS'] = 'Content-Type'
-# run_with_ngrok(app)
+run_with_ngrok(app)
 
 @app.route('/')
 def index():
@@ -29,7 +37,7 @@ def process_video():
         response = {'image': image_base64}
         return jsonify(response)
     else:
-        response = {'error': 'No happy moment found'}
+        response = {'error': 'No confident moment found'}
         return jsonify(response)
 
 @app.route('/speech-to-text', methods=['POST', 'GET'])
@@ -67,5 +75,17 @@ def speech_to_text():
     response = jsonify({"text": text, "similarity": similarity})
     return response
 
+@app.route('/detect-gender', methods=['POST', 'GET'])
+def detectGender():
+    # Get the image file from the request
+    if "image" not in request.files:
+            return jsonify({'error': 'No image provided'})
+
+    photo = request.files["image"]
+    
+    gender = detectFacesWithDNN(photo)
+    return jsonify({"gender": gender})
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=80)
+    # app.run(host="0.0.0.0", port=80)
+    app.run()
