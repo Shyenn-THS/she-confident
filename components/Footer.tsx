@@ -49,7 +49,7 @@ const supportors = [
 
 const Footer = (props: Props) => {
   return (
-    <footer className="px-4 divide-y text-cascade-700 bg-white-linen max-w-6xl mx-auto ">
+    <footer className="px-4 divide-y text-cascade-700 dark:bg-background-secondary dark:text-text-color-primary bg-white-linen max-w-6xl mx-auto ">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <Logo />
@@ -114,7 +114,7 @@ const Footer = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center dark:text-cascade-400">
+      <div className="py-6 text-sm text-center">
         © {new Date().getFullYear()} SheConfident. All rights reserved.
       </div>
     </footer>

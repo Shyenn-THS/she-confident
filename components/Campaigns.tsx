@@ -24,7 +24,7 @@ function Campaigns() {
   }
 
   return (
-    <main>
+    <main className="dark:text-text-color-primary">
       <motion.h1
         animate={{ y: [50, 0] }}
         transition={{ duration: 1, ease: 'easeInOut' }}

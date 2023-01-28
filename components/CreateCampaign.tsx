@@ -108,16 +108,16 @@ function CreateCampaign() {
         />
       </div>
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white dark:bg-background-secondary text-text-color-secondary dark:text-text-color-tertiary shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Campaign Title
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
               placeholder="Campaign Title"
               {...register('title')}
@@ -127,13 +127,13 @@ function CreateCampaign() {
 
           <div className="w-full md:w-1/2 px-3">
             <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide  text-xs font-bold mb-2"
               htmlFor="grid-password"
             >
               Required Amount
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="number"
               min={0}
               step="0.01"
@@ -146,11 +146,11 @@ function CreateCampaign() {
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Upload Cover Image
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="Upload Image"
               type="file"
               required
@@ -161,11 +161,11 @@ function CreateCampaign() {
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Founders
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
               placeholder="Jhon Doe, Ashok Kumar, ...."
               {...register('founders')}
@@ -176,11 +176,11 @@ function CreateCampaign() {
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Categories
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
               placeholder="Blockchain, ML, ...."
               {...register('categories')}
@@ -195,11 +195,11 @@ function CreateCampaign() {
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Social Links
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
               placeholder="Github, Linkedin"
               {...register('social')}
@@ -208,11 +208,11 @@ function CreateCampaign() {
           </div>
 
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Mail
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="email"
               placeholder="Campaign Title"
               {...register('mail')}
@@ -223,11 +223,11 @@ function CreateCampaign() {
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Story
             </label>
             <textarea
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="Story"
               {...register('story')}
               required

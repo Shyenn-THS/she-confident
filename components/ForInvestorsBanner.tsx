@@ -9,7 +9,7 @@ const ForInvestorsBanner = (props: Props) => {
   return (
     <>
       {!close ? (
-        <section className="py-6 bg-white-linen relative">
+        <section className="py-6 bg-white-linen dark:bg-background-secondary dark:text-text-color-primary relative">
           <XMarkIcon
             className="h-5 w-5 absolute top-5 cursor-pointer right-5"
             onClick={() => setClose(true)}

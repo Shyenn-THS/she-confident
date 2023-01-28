@@ -273,14 +273,16 @@ const AddItem = () => {
             />
           ) : null}
           <div className="py-4 w-3/4 mx-auto">
-            <p className="text-cascade-700">
-              <span className="font-bold text-cascade-900">You Said:</span>{' '}
+            <p className="text-cascade-700 dark:text-text-color-tertiary">
+              <span className="font-bold text-cascade-900 dark:text-text-color-primary">
+                You Said:
+              </span>{' '}
               {transcribed
                 ? transcribed.text
                 : 'Submit recording to generate score!'}
             </p>
-            <p className="text-cascade-700">
-              <span className="font-bold text-cascade-900">
+            <p className="text-cascade-700 dark:text-text-color-tertiary">
+              <span className="font-bold text-cascade-900 dark:text-text-color-primary">
                 {' '}
                 Confidence Score:
               </span>{' '}
@@ -309,7 +311,7 @@ const AddItem = () => {
       </section>
 
       {!isProcessing ? (
-        <section className="max-w-6xl mx-auto p-10 border">
+        <section className="max-w-6xl mx-auto p-10 dark:text-text-color-primary">
           <h1 className="text-4xl font-bold pt-5">Add an Item to Collection</h1>
           <h2 className="text-xl font-semibold pt-5">Item Details</h2>
           <p className="pb-5">

@@ -18,6 +18,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 import toast from 'react-hot-toast';
+import GearLoading from '../../components/GearLoading';
 import Spinner from '../../components/Spinner';
 import network from '../../utils/network';
 
@@ -82,11 +83,7 @@ const ListingPage = () => {
   }, [listingId, listing, contract]);
 
   if (isLoading) {
-    return (
-      <div className="text-center animate-pulse text-froly-500">
-        Loading Item.....
-      </div>
-    );
+    return <GearLoading loadingMessage="Loading listing..." />;
   }
 
   if (!listing) {
@@ -256,9 +253,9 @@ const ListingPage = () => {
   };
 
   return (
-    <main className="max-w-6xl mx-auto flex justify-between">
+    <main className="flex justify-between">
       <div className="flex flex-col space-y-8">
-        <div className="border object-cover h-fit mx-auto lg:mx-0 max-w-md lg:max-w-xl bg-gradient-to-tr from-froly to-mandys-pink">
+        <div className="h-fit mx-auto lg:mx-0 max-w-md lg:max-w-xl bg-gradient-to-tr from-froly to-mandys-pink">
           <MediaRenderer className="h-92" src={listing.asset.image} />
         </div>
 
@@ -276,10 +273,12 @@ const ListingPage = () => {
         ) : null}
       </div>
 
-      <section className="space-y-8 pb-20 lg:pb-0">
+      <section className="space-y-8 pb-20 lg:pb-0 dark:text-text-color-primary">
         <div className="space-y-2">
           <h1 className="text-xl font-bold">{listing.asset.name}</h1>
-          <p className="text-gray-600">{listing.asset.description}</p>
+          <p className="text-text-color-tertiary">
+            {listing.asset.description}
+          </p>
           <p className="flex items-center text-xs sm:text-base">
             <UserCircleIcon className="h-5 pr-1" />
             <span className="font-bold pr-2">Seller:</span>
@@ -381,7 +380,7 @@ const ListingPage = () => {
           )}
 
           <input
-            className="border p-2 rounded-lg mr-5 border-cascade-800 outline-froly-600"
+            className="border p-2 rounded-lg mr-5 border-none outline-froly-500 dark:outline-transparent dark:bg-background-secondary"
             type="text"
             placeholder={formatPlaceholder()}
             onChange={(e) => {

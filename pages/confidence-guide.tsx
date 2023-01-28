@@ -4,7 +4,7 @@ type Props = {};
 
 const ConfidenceGuid = (props: Props) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-background-secondary">
       <div className="mx-auto max-w-2xl items-center gap-y-16 gap-x-8 py-4 px-4 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
         <div>
           <h2 className="mb-4 text-4xl tracking-tight font-bold text-center text-froly-400">
@@ -13,10 +13,7 @@ const ConfidenceGuid = (props: Props) => {
 
           <div className="flex flex-row ">
             <div className="flex flex-col w-1/6  rounded object-cover">
-              <img
-                src="./imgCG/Img4.svg"
-                className="rounded-lg bg-gray-100 h-full "
-              />
+              <img src="./imgCG/Img4.svg" className="rounded-lg h-full " />
             </div>
             <div>
               {' '}

@@ -30,7 +30,7 @@ const Logo = (props: Props) => {
         <span className="text-froly flex space-x-5 items-center">
           She <SparklesIcon className="w-5 h-5" />
         </span>{' '}
-        <span>Confident</span>
+        <span className="dark:text-text-color-primary">Confident</span>
       </h1>
     </Link>
   );

@@ -20,6 +20,7 @@ import {
 } from '@rainbow-me/rainbowkit/wallets';
 import '@rainbow-me/rainbowkit/styles.css';
 import { Toaster } from 'react-hot-toast';
+import { UIProvider } from '../context/UIContext';
 
 const { chains, provider } = configureChains(
   [polygonMumbai],
@@ -90,9 +91,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               duration: 5000,
             }}
           />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <UIProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </UIProvider>
         </ThirdwebProvider>
       </RainbowKitProvider>
     </WagmiConfig>

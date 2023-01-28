@@ -48,7 +48,7 @@ const GearLoading = (props: Props) => {
             />
           </svg>
         </section>
-        <div className="mt-3 text-cascade-700 text-xl text-center">
+        <div className="mt-3 text-text-color-secondary dark:text-text-color-tertiary text-xl text-center">
           {loadingMessage}
         </div>
       </div>

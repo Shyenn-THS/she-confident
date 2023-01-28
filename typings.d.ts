@@ -30,3 +30,11 @@ export type KeyPointProps = {
   name: string;
   Icon: FC<IconBaseProps>;
 };
+
+type ModalContent = {
+  title: string;
+  confirmTitle: string;
+  action: any;
+  description: string;
+  possitive?: boolean;
+};

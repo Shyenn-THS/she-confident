@@ -8,7 +8,7 @@ type Props = {
 
 const Layout: FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className="dark:bg-background-primary pt-2">
       <Header />
       <main className="max-w-6xl mx-auto py-10">{children}</main>
       <Footer />

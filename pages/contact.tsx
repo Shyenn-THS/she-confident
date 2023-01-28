@@ -37,31 +37,31 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="bg-mandys-pink-50">
+      <section className="bg-mandys-pink-50 dark:bg-background-secondary dark:text-text-color-tertiary text-text-color-secondary">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-bold text-center text-froly-400">
             Contact Us
           </h2>
-          <p className="mb-8 lg:mb-16 font-light text-center text-cascade-900 text-xl">
+          <p className="mb-8 lg:mb-16 font-light text-center text-xl">
             Got a technical issue? Want to send feedback about a beta feature?
             Need details about Us? Or just want to say hi, Let us know.
           </p>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div>
-              <label className="block mb-2 text-sm font-medium text-cascade-800 ">
+              <label className="block mb-2 text-sm font-medium  ">
                 First Name<span className="text-froly-400">*</span>
               </label>
               <input
                 type="text"
                 id="text"
                 placeholder="Jhon"
-                className="shadow-sm bg-white border border-cascade-200 text-cascade-800 text-sm rounded-lg  block w-full p-2.5 "
+                className="shadow-sm bg-white dark:bg-background-secondary  border border-cascade-200  text-sm rounded-lg  block w-full p-2.5 "
                 {...register('fname')}
                 required
               />
             </div>
             <div>
-              <label className="block mb-2 text-sm font-medium text-cascade-800 ">
+              <label className="block mb-2 text-sm font-medium  ">
                 Last Name<span className="text-froly-400">*</span>
               </label>
               <input
@@ -69,12 +69,12 @@ const Contact = () => {
                 id="text"
                 placeholder="Doe"
                 {...register('lname')}
-                className="shadow-sm bg-white border border-cascade-200 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
+                className="shadow-sm bg-white dark:bg-background-secondary  border border-cascade-200 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
                 required
               />
             </div>
             <div>
-              <label className="block mb-2 text-sm font-medium text-cascade-800 ">
+              <label className="block mb-2 text-sm font-medium  ">
                 Email<span className="text-froly-400">*</span>
               </label>
               <input
@@ -82,32 +82,30 @@ const Contact = () => {
                 id="email"
                 placeholder="jhondoe@gmail.com"
                 {...register('email')}
-                className="shadow-sm bg-white border border-cascade-200 text-cascade-800 text-sm rounded-lg  block w-full p-2.5 "
+                className="shadow-sm bg-white dark:bg-background-secondary  border border-cascade-200  text-sm rounded-lg  block w-full p-2.5 "
                 required
               />
             </div>
             <div>
-              <label className="block mb-2 text-sm font-medium text-cascade-800 ">
+              <label className="block mb-2 text-sm font-medium  ">
                 Subject<span className="text-froly-400">*</span>
               </label>
               <input
                 type="text"
                 id="subject"
                 {...register('subject')}
-                className="block p-3 w-full text-sm text-cascade-800 bg-white rounded-lg border border-cascade-200 shadow-sm  "
+                className="block p-3 w-full text-sm  bg-white dark:bg-background-secondary  rounded-lg border border-cascade-200 shadow-sm  "
                 placeholder="Let us know how we can help you"
                 required
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block mb-2 text-sm font-medium text-cascade-800">
-                Message
-              </label>
+              <label className="block mb-2 text-sm font-medium ">Message</label>
               <textarea
                 id="message"
                 rows={6}
                 {...register('message')}
-                className="block p-2.5 w-full text-sm text-cascade-800 bg-white rounded-lg shadow-sm border border-cascade-200 "
+                className="block p-2.5 w-full text-sm  bg-white dark:bg-background-secondary  rounded-lg shadow-sm border border-cascade-200 "
                 placeholder="Leave a comment..."
               ></textarea>
             </div>

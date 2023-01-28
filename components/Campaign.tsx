@@ -119,7 +119,7 @@ function Campaign({ projectNumber }: CampaignProps) {
           duration: 1,
         }}
         viewport={{ once: true }}
-        className="max-w-sm rounded overflow-hidden shadow-lg pb-4 group cursor-pointer"
+        className="max-w-sm rounded overflow-hidden shadow-lg pb-4 group cursor-pointer dark:bg-background-secondary"
       >
         <img
           src={
@@ -148,7 +148,9 @@ function Campaign({ projectNumber }: CampaignProps) {
               );
             })}
           </ul>
-          <p className="text-gray-700 text-base line-clamp-2">{description}</p>
+          <p className="dark:text-text-color-tertiary text-text-color-secondary text-base line-clamp-2">
+            {description}
+          </p>
         </div>
         <div className="px-6">
           <span className="projectBadge">
@@ -165,7 +167,7 @@ function Campaign({ projectNumber }: CampaignProps) {
 
           <div className="flex items-center py-2">
             <input
-              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              className="appearance-none dark:bg-background-primary bg-transparent border-none w-full dark:text-text-color-tertiary text-text-color-secondary mr-3 p-2 leading-tight focus:outline-none"
               type="number"
               placeholder="0.000"
               min={0}

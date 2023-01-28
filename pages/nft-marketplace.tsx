@@ -33,7 +33,7 @@ const NFTMarketplace: NextPage = () => {
             {listings?.map((listing) => {
               return (
                 <Link key={listing?.id} href={`/listing/${listing.id}`}>
-                  <div className="flex flex-col card hover:scale-105 transition-all duration-150 ease-out">
+                  <div className="card">
                     <div className="flex-1 h-52 object-cover w-full flex flex-col items-center">
                       <MediaRenderer
                         className="object-cover bg-gradient-to-tr from-froly to-mandys-pink"
@@ -47,7 +47,7 @@ const NFTMarketplace: NextPage = () => {
                           {listing.asset.name}
                         </h2>
                         <hr />
-                        <p className="line-clamp-2 text-sm text-gray-600 mt-2">
+                        <p className="line-clamp-2 text-sm text-text-color-secondary dark:text-text-color-tertiary mt-2">
                           {listing.asset.description}
                         </p>
                       </div>
@@ -62,7 +62,7 @@ const NFTMarketplace: NextPage = () => {
                       </p>
 
                       <div
-                        className={`flex items-center space-x-1 justify-end text-xs border w-fit ml-auto p-2 rounded-lg text-white ${
+                        className={`flex items-center space-x-1 justify-end text-xs w-fit ml-auto p-2 rounded-lg text-text-color-primary ${
                           listing.type === ListingType.Direct
                             ? 'bg-froly-500'
                             : 'bg-rajah-500'

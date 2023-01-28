@@ -1,9 +1,12 @@
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MagnifyingGlassIcon, StarIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
+import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
+import { UIContext } from '../context/UIContext';
+import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 
 const links = [
   {
@@ -54,6 +57,29 @@ const Header = () => {
   const disconnect = useDisconnect();
   const address = useAddress();
 
+  // Darkmode
+  const { state, dispatch } = useContext(UIContext);
+  const { darkMode } = state;
+
+  const darkModeChangeHandler = () => {
+    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+    const newDarkMode = !darkMode;
+    jsCookie.set('darkMode', newDarkMode ? 'ON' : 'OFF');
+  };
+
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      setDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setDark(false);
+    }
+    return () => {};
+  }, [darkMode]);
+
   return (
     <div className="max-w-6xl mx-auto p-2">
       <nav className="flex justify-between items-center">
@@ -87,6 +113,14 @@ const Header = () => {
             Confidence Guide
           </Link>
 
+          <div className="text-lg dark:text-text-color-primary cursor-pointer">
+            {dark ? (
+              <BsFillSunFill className="" onClick={darkModeChangeHandler} />
+            ) : (
+              <BsMoonFill className="" onClick={darkModeChangeHandler} />
+            )}
+          </div>
+
           <Link href="/become-confident">
             <div className="flex items-center text-rajah-500 space-x-1 hover:link font-bold">
               <span>Become Confident</span>
@@ -104,14 +138,14 @@ const Header = () => {
       >
         <Logo />
 
-        <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black border-2 flex-1">
-          <MagnifyingGlassIcon className="w-5 text-gray-400" />
+        <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black dark:bg-background-secondary border-2 flex-1">
+          <MagnifyingGlassIcon className="w-5 text-text-color-tertiary" />
           <input
             type="text"
             name="search"
             id="searchBar"
             placeholder="Search for Anything"
-            className="flex-1 outline-none"
+            className="flex-1 outline-none bg-transparent dark:text-text-color-tertiary"
             ref={searchRef}
           />
         </div>

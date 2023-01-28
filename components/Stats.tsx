@@ -27,7 +27,7 @@ const Stats = () => {
     Icon: FC<IconBaseProps>;
   }) => {
     return (
-      <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-froly">
+      <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-froly dark:bg-froly-500">
         <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 text-mandys-pink-100">
           <Icon className="text-4xl" />
         </div>
@@ -41,7 +41,7 @@ const Stats = () => {
     );
   };
   return (
-    <section className="p-6 my-6 bg-mandys-pink">
+    <section className="p-6 my-6 bg-mandys-pink dark:bg-background-secondary">
       <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
         <StatsCard name="NFTs" value={listings?.length!} Icon={MdCollections} />
         {totalProjects ? (
