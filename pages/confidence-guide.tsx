@@ -6,7 +6,7 @@ const ConfidenceGuid = (props: Props) => {
   return (
     <div className="bg-white dark:bg-background-secondary">
       <div className="mx-auto max-w-2xl items-center gap-y-16 gap-x-8 py-4 px-4 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-        <div>
+        <div className="text-cascade-800 dark:text-text-color-primary">
           <h2 className="mb-4 text-4xl tracking-tight font-bold text-center text-froly-400">
             Confidence Guide
           </h2>
@@ -17,7 +17,7 @@ const ConfidenceGuid = (props: Props) => {
             </div>
             <div>
               {' '}
-              <p className=" text-cascade-800 w-full pl-4">
+              <p className="  w-full pl-4">
                 Self-confidence is easy to spot but hard to develop. You build
                 it piece by piece starting with noticing what you already have
                 and appreciating your wins, no matter how small. It doesn’t
@@ -28,12 +28,10 @@ const ConfidenceGuid = (props: Props) => {
             </div>
           </div>
           <hr className="mt-4 mb-4"></hr>
-          <div className="bg-white-linen p-4">
-            <h1 className="  text-2xl tracking-tight font-bold text-cascade-800">
-              Contents
-            </h1>
-            <div className="table-of-contents mx-8 border-top">
-              <ul className="list-disc ">
+          <div className="p-4">
+            <h1 className="  text-2xl tracking-tight font-bold ">Contents</h1>
+            <div className="table-of-contents mx-8 border-top py-4">
+              <ul className="list-disc space-y-2">
                 <li className="table-of-contents--item">
                   What is Self-Confidence?
                 </li>
@@ -51,13 +49,13 @@ const ConfidenceGuid = (props: Props) => {
           </div>
           <hr className="mt-4"></hr>
 
-          <h6 className=" mt-8 text-2xl tracking-tight font-bold text-cascade-800">
+          <h6 className=" mt-8 text-2xl tracking-tight font-bold ">
             What is Self Confidence?
           </h6>
           <div className="grid grid-cols-2">
             {' '}
             <div>
-              <p className=" text-cascade-800">
+              <p className=" ">
                 self-confidence generally refers to a sense of comfort with
                 yourself and your instincts and a belief that you can trust your
                 own abilities, knowledge, and judgment.{' '}
@@ -72,59 +70,59 @@ const ConfidenceGuid = (props: Props) => {
             </div>
           </div>
           <hr className="mt-4 mb-4"></hr>
-          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+          <h6 className=" text-2xl tracking-tight font-bold  mb-4">
             How to build confidence?
           </h6>
           <div className="flex flex-row ">
             <div className="bg-white p-4 w-2/3">
-              <p className=" text-cascade-800">
+              <p className=" ">
                 Everyone can learn how to be more confident in different,
                 powerful ways. What may work for some may not work for all, and
                 that's okay. Remember that you can always start small with
                 little steps before taking bold strides. Here are five ways to
                 help build self-confidence:{' '}
               </p>
-              <p className="mt-4 text-cascade-800 font-medium">
+              <p className="mt-4  font-medium">
                 1. Stop comparing yourself to others
               </p>
-              <p className="text-cascade-800">
+              <p className="">
                 Comparing yourself to someone you think is doing better than you
                 can cause you to beat yourself up, judge yourself, or feel bad
                 about yourself. It’s never a good idea to compare yourself to
                 others.{' '}
               </p>
-              <p className="mt-4 text-cascade-800 font-medium">
+              <p className="mt-4  font-medium">
                 2. Celebrate and reflect on your wins
               </p>
-              <p className="text-cascade-800">
+              <p className="">
                 We all want to be successful in our goals but along the journey
                 to reaching our big and ambitious goals, we can feel demotivated
                 sometimes. This is why celebrating small wins along the way is
                 so important in giving us motivation to push through
                 difficulties and move forward.
               </p>
-              <p className="mt-4 text-cascade-800 font-medium">
+              <p className="mt-4  font-medium">
                 3. Embrace your failures and view them as learning opportunities
               </p>
-              <p className="text-cascade-800">
+              <p className="">
                 By embracing failure, you are accepting yourself and your
                 situation as a part of life. It is an opportunity for growth,
                 but it is not a measure of your future or self-worth.
               </p>
-              <p className="mt-4 text-cascade-800 font-medium">
+              <p className="mt-4  font-medium">
                 4. Treat yourself with respect
               </p>
-              <p className="text-cascade-800">
+              <p className="">
                 Self-respect is loving yourself and treating yourself with care.
                 It’s the result of staying true to your values and not being
                 willing to compromise. The more you engage in behaviors
                 consistent with your beliefs and values, the more you’ll feel
                 fulfilled and confident.
               </p>
-              <p className="mt-4 text-cascade-800 font-medium">
+              <p className="mt-4  font-medium">
                 5. Pursue passions that make you happy
               </p>
-              <p className="text-cascade-800">
+              <p className="">
                 By chasing your dreams and finding that passion and drive, you
                 will be happier in all aspects of life. Your workplace attitude
                 will improve, and you’ll be happier outside of the office. All
@@ -156,28 +154,26 @@ const ConfidenceGuid = (props: Props) => {
           </div>
 
           <hr className="mt-4 mb-4"></hr>
-          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+          <h6 className=" text-2xl tracking-tight font-bold  mb-4">
             What are some tips to be more confident?
           </h6>
           <div className="bg-white p-4 mb-4">
-            <p className=" text-cascade-800">
+            <p className=" ">
               Building your confidence takes time and involves plenty of ups and
               downs. As you put in the work toward being confident, here are a
               few tips to keep in mind during virtual meets:
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               1. Pay attention to how you frame yourself on screen{' '}
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               Virtual meetings allow you to decide how much you want to be
               visible to the other meeting attendees. It would be perfect if you
               could frame your image in a way that shows your shoulders, torso,
               and hands — and not just your head.
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
-              2. Avoid touching the face
-            </p>
-            <p className="text-cascade-800">
+            <p className="mt-4  font-medium">2. Avoid touching the face</p>
+            <p className="">
               {' '}
               Rubbing your eyes, covering your mouth, or playing with your hair
               shows you're nervous. Try raising your eyebrows to show interest.
@@ -186,10 +182,10 @@ const ConfidenceGuid = (props: Props) => {
               come near your face — keep them on your lap, or take notes to keep
               them busy (and do something useful).{' '}
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               3. Look at the camera, not the screen{' '}
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               {' '}
               The proper conduct is to look at the camera because you want to
               simulate looking into your coworkers’ eyes. Since looking at the
@@ -197,15 +193,15 @@ const ConfidenceGuid = (props: Props) => {
               maybe you could alternate between looking directly at the camera
               and the computer screen, at your coworkers.
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               4. Pay attention to your facial expressions
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               Speaking of smiling, during virtual meetings, you should avoid
               frowning, yawning, staring, or other facial expressions that might
               indicate hostility or boredom.
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               5. Be mindful of your hand gestures
             </p>
             <p>
@@ -231,47 +227,45 @@ const ConfidenceGuid = (props: Props) => {
             </div>
           </div>
           <hr className="mt-4 mb-4"></hr>
-          <h6 className=" text-2xl tracking-tight font-bold text-cascade-800 mb-4">
+          <h6 className=" text-2xl tracking-tight font-bold  mb-4">
             What are the benefits of developing self-confidence?
           </h6>
           <div className="bg-white p-4 ">
-            <p className=" text-cascade-800">
+            <p className=" ">
               Why do people need to be confident in life? Improved
               self-confidence can add many benefits to your life that you may
               not even realize. The impacts reach both your professional and
               personal life. Here are four benefits that self-confidence can
               bring to your life:
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               1. Experience healthy relationships
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               {' '}
               While confidence is great for loving others, it also helps you
               show love to yourself. You'll find that you'll have a better
               understanding of yourself and others.{' '}
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
-              2. Succeed more in your jobs
-            </p>
-            <p className="text-cascade-800">
+            <p className="mt-4  font-medium">2. Succeed more in your jobs</p>
+            <p className="">
               You will seem at ease in the way you perform. Self-confidence can
               also help you develop leadership skills because you can easily
               connect and communicate.
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               3. Welcome new chapters without worry
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               You can better believe in your abilities when testing your limits
               and trying new things.Their confidence spills over into their
               decision-making process, making new adventures exciting, not
               scary.{' '}
             </p>
-            <p className="mt-4 text-cascade-800 font-medium">
+            <p className="mt-4  font-medium">
               4. Experience greater resilience
             </p>
-            <p className="text-cascade-800">
+            <p className="">
               Your self-confidence will help you accept responsibility and
               understand that you're constantly learning throughout life.
               Self-confidence doesn’t come from one moment or action and it

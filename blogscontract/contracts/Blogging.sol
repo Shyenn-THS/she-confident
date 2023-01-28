@@ -66,7 +66,6 @@ contract Blog {
     string public image;
     string public social;
     address ownerWallet;
-
     uint256 likes;
 
     constructor(
@@ -84,6 +83,7 @@ contract Blog {
         categories = blogCategories;
         image = blogImage;
         social = blogSocial;
+        likes = 0;
     }
 
     //like function

@@ -1,17 +1,17 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  const Blogging = await ethers.getContractFactory('Blogging');
-  const blogging = await Blogging.deploy();
+  const BlogList = await ethers.getContractFactory('BlogList');
+  const blogging = await BlogList.deploy();
 
   await blogging.deployed();
 
-  console.log(`deployed to ${blogging.address}`);
+  console.log('Contract deployed to address:', blogging.address);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

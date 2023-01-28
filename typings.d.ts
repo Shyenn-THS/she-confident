@@ -15,6 +15,15 @@ export type Campaign = {
   raisedAmount: BigNumber;
 };
 
+export type BlogData = {
+  title: string;
+  owner: string;
+  description: string;
+  categories: string;
+  image: string;
+  social: string;
+};
+
 export type Phrase = {
   phrase: string;
   owner: string;
