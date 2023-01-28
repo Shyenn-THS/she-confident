@@ -1,6 +1,6 @@
 # She-Confident by [Shyenn](https://github.com/Shyenn-THS)
 
-## Live at: https://www.shyenn.club/
+## Live at: https://sheconfident.shyenn.club/
 
 #### SheConfident is a platform that empowers women by providing resources to boost self-esteem and confidence, as well as listing their projects for crowdfunding. Our goal is to help women achieve their dreams by offering a range of tools and support services.
 
