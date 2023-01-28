@@ -1,17 +1,9 @@
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
 import Link from 'next/link';
 import React, { useRef } from 'react';
-import {
-  BellIcon,
-  MagnifyingGlassIcon,
-  ShoppingCartIcon,
-  StarIcon,
-} from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, StarIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
 import { useRouter } from 'next/router';
-// import { ConnectButton } from '@rainbow-me/rainbowkit';
-
-type Props = {};
 
 const links = [
   {
@@ -48,13 +40,12 @@ const links = [
   },
 ];
 
-const Header = (props: Props) => {
+const Header = () => {
   const router = useRouter();
-  const searchRef = useRef(null);
+  const searchRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // @ts-ignore
     const term = searchRef.current?.value;
     router.push(`/search?term=${term}`);
   };
@@ -68,39 +59,31 @@ const Header = (props: Props) => {
       <nav className="flex justify-between items-center">
         <div className="flex items-center space-x-4 text-sm">
           {address ? (
-            <button onClick={disconnect} className="connectWalletBtn">
+            <button onClick={disconnect} className="buttons">
               Hi, {address.slice(0, 5) + '...' + address.slice(-4)}
             </button>
           ) : (
-            <button onClick={connectWithMetamask} className="connectWalletBtn">
+            <button onClick={connectWithMetamask} className="buttons">
               Connect your wallet
             </button>
           )}
 
-          {/* <ConnectButton
-            showBalance={false}
-            accountStatus={{
-              smallScreen: 'avatar',
-              largeScreen: 'full',
-            }}
-          /> */}
-
-          <Link href="/my-profile" className="headerLink">
+          <Link href="/my-profile" className="link">
             My Profile
           </Link>
-          <Link href="/contact" className="headerLink">
+          <Link href="/contact" className="link">
             Help &#38; Contact
           </Link>
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          <Link href="/empower" className="headerLink">
+          <Link href="/empower" className="link">
             Women Projects
           </Link>
-          <Link href="/nft-marketplace" className="headerLink">
+          <Link href="/nft-marketplace" className="link">
             NFT Marketplace
           </Link>
-          <Link href="/confidence-guide" className="headerLink">
+          <Link href="/confidence-guide" className="link">
             Confidence Guide
           </Link>
 
@@ -110,9 +93,6 @@ const Header = (props: Props) => {
               <StarIcon className="h-4" />
             </div>
           </Link>
-
-          {/* <BellIcon className="h-6 w-6" />
-          <ShoppingCartIcon className="h-6 w-6" /> */}
         </div>
       </nav>
 
@@ -123,10 +103,6 @@ const Header = (props: Props) => {
         className="flex flex-wrap items-center space-x-5 py-5"
       >
         <Logo />
-        {/* <button className="hidden lg:flex items-center space-x-2 w-20">
-          <p className="text-sm text-gray-600">Shop by Category</p>
-          <ChevronDownIcon className="h-4 flex-shrink-0" />
-        </button> */}
 
         <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black border-2 flex-1">
           <MagnifyingGlassIcon className="w-5 text-gray-400" />
@@ -142,14 +118,14 @@ const Header = (props: Props) => {
 
         <button
           type="submit"
-          className="hidden sm:inline bg-froly text-white px-5 md:px-10 py-2 border-2 border-froly-500"
+          className="px-5 w-full sm:w-fit md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-500 text-froly-500 hover:bg-froly-400 hover:text-white cursor-pointer"
         >
           Search
         </button>
         <Link
           type="button"
           href="/create"
-          className="px-5 w-full sm:w-fit md:px-10 py-2 border-2 border-froly-500 text-froly-500 hover:bg-froly-500/50 hover:text-white cursor-pointer"
+          className="bg-froly-500 text-white px-5 md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-700 hover:bg-froly-600"
         >
           List Your NFT
         </Link>

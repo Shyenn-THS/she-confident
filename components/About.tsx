@@ -1,7 +1,8 @@
 import React from 'react';
-import { MdFaceRetouchingNatural } from 'react-icons/md';
-import { BiHappyBeaming } from 'react-icons/bi';
+import { MdCollections, MdFaceRetouchingNatural } from 'react-icons/md';
+import { BiHappyBeaming, BiNotepad } from 'react-icons/bi';
 import { RiFundsFill } from 'react-icons/ri';
+import { FaDonate } from 'react-icons/fa';
 import { KeyPointProps } from '../typings';
 
 const points = [
@@ -24,22 +25,22 @@ const points = [
     Icon: MdFaceRetouchingNatural,
   },
   {
-    name: 'Bye NFTs',
+    name: 'Collect NFTs',
     description:
-      'Use our AI model to determine and improve your confidence on camera and also in real life.',
-    Icon: BiHappyBeaming,
+      'Collect unique NFTs from our market place and support womens by purchasing their confident movements.',
+    Icon: MdCollections,
   },
   {
-    name: 'Support Women Projects',
+    name: 'Support Projects',
     description:
-      'Raise funding to support your projects, let your dreams take a jump.',
-    Icon: RiFundsFill,
+      'Support womens by funding their ideas and supporting their startups. Or contact creators regarding their idea.',
+    Icon: FaDonate,
   },
   {
-    name: 'NFT Marketplace',
+    name: 'Explore Blogs',
     description:
-      'Generate NFT from your confident face and sell it on our marketplace, by creating auctions or by direct lisitng.',
-    Icon: MdFaceRetouchingNatural,
+      'Create / Read blogs on women empowerment, and also grow your knwoledge from our community.',
+    Icon: BiNotepad,
   },
 ];
 
@@ -62,7 +63,8 @@ const About = () => {
       <div className="container mx-auto p-4 space-y-2 text-center">
         <h2 className="text-5xl font-bold">Built to empower every Women</h2>
         <p className="dark:text-gray-400">
-          A platform build to empower and support womens on their journey.
+          A decentralized platform build to empower and support womens on their
+          journey.
         </p>
       </div>
       <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">

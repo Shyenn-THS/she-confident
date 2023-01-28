@@ -10,9 +10,9 @@ import Quotes from '../components/Quotes';
 import Confetti from 'react-confetti';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import toast from 'react-hot-toast';
-type Props = {};
+import { SignedPayload721WithQuantitySignature } from '@thirdweb-dev/sdk';
 
-const AddItem = (props: Props) => {
+const AddItem = () => {
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_COLLECTION_CONTRACT,
     'nft-collection'
@@ -32,13 +32,14 @@ const AddItem = (props: Props) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [pageLoaded, setPageLoaded] = useState(false);
 
+  //Set page loaded
   useEffect(() => {
     setPageLoaded(true);
   }, []);
 
+  //Getting the phrase
   useEffect(() => {
     fetch('/api/phrases/get-phrase', {
-      // mode: 'no-cors',
       method: 'GET',
     })
       .then((response) => response.json())
@@ -50,13 +51,44 @@ const AddItem = (props: Props) => {
       });
   }, []);
 
+  //Function to mint the NFTs
   const mintNft = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!contract || !address) {
       toast.error('Please connect your wallet!');
+      return;
     }
+
     if (!image) {
-      alert('Please select and image.');
+      toast.error('Sorry, No image was found.');
+      return;
+    }
+
+    setLoading(true);
+
+    const formData = new FormData();
+    formData.append('image', image);
+    let gender = 'Female';
+
+    //Detects Gender
+    await fetch(`${process.env.NEXT_PUBLIC_FLASK_ENDPOINT}/detect-gender`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        gender = data.gender;
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+
+    if (gender !== 'Female') {
+      toast.error(
+        'We detected you as a Male, Please contact us if we are wrong.'
+      );
+      setLoading(false);
       return;
     }
 
@@ -65,22 +97,39 @@ const AddItem = (props: Props) => {
       description: { value: string };
     };
 
-    const metadata = {
-      name: target.name.value,
-      description: target.description.value,
-      image: image,
-    };
-
     try {
-      setLoading(true);
-      const tx = await contract!.mintTo(address!, metadata);
+      let signature: SignedPayload721WithQuantitySignature | undefined =
+        undefined;
+      const formData = new FormData();
+      formData.append('address', address!);
+      formData.append('image', image);
+      formData.append('description', target.description.value);
+      formData.append('name', target.name.value);
+
+      //Generate Signature for Minting NFT
+      await fetch('/api/generate-signature', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          signature = data.signature;
+        })
+        .catch((err) => {
+          toast.error(err.message);
+          setLoading(false);
+        });
+
+      //Minting
+      const tx = await contract!.signature.mint(signature!);
       const receipt = tx.receipt;
       const tokenid = tx.id;
+      //@ts-ignore
       const nft = await tx.data();
 
       console.log(receipt, tokenid, nft);
 
-      router.push('/');
+      router.push('/create');
     } catch (error) {
       console.error(error);
     } finally {
@@ -88,6 +137,7 @@ const AddItem = (props: Props) => {
     }
   };
 
+  //Speech Recognation
   const onData = (recordedBlob: { blob: Blob }) => {
     // Convert the recorded audio to a Blob object
     const audioBlob = new Blob([recordedBlob.blob], { type: 'audio/wav' });
@@ -99,7 +149,6 @@ const AddItem = (props: Props) => {
 
     // Make a POST request to the /speech-to-text endpoint with the audio file in the request body
     fetch(`${process.env.NEXT_PUBLIC_FLASK_ENDPOINT}/speech-to-text`, {
-      // mode: 'no-cors',
       method: 'POST',
       body: formData,
     })
@@ -162,7 +211,7 @@ const AddItem = (props: Props) => {
         const image_base64 = data.image;
         if (!image_base64) {
           toast.error(
-            'Sorry we were unable to find your happy face. Try being more happy while talking 😃'
+            'Sorry we were unable to find your confident face. Try being more happy while talking 😃'
           );
           setIsProcessing(false);
           return;
@@ -188,6 +237,7 @@ const AddItem = (props: Props) => {
       });
   };
 
+  // Confetti
   useEffect(() => {
     setTimeout(() => {
       setConfetti(false);
@@ -195,6 +245,7 @@ const AddItem = (props: Props) => {
   }, [confetti]);
 
   const { width, height } = useWindowSize();
+
   return (
     <main>
       {confetti ? (
@@ -231,7 +282,7 @@ const AddItem = (props: Props) => {
             <p className="text-cascade-700">
               <span className="font-bold text-cascade-900">
                 {' '}
-                Similarity With Original:
+                Confidence Score:
               </span>{' '}
               {Math.round(
                 transcribed ? parseFloat(transcribed.similarity) * 100 : 0
@@ -259,13 +310,12 @@ const AddItem = (props: Props) => {
 
       {!isProcessing ? (
         <section className="max-w-6xl mx-auto p-10 border">
-          <h1 className="text-4xl font-bold pt-5">
-            Add an Item to Marketplace
-          </h1>
+          <h1 className="text-4xl font-bold pt-5">Add an Item to Collection</h1>
           <h2 className="text-xl font-semibold pt-5">Item Details</h2>
           <p className="pb-5">
-            By adding item to the marketplace, you&apos;re essentially Minting
-            an NFT of the item into your wallet which we then list for sale!
+            By adding item to the collection, you&apos;re essentially Minting an
+            NFT of your confident face into your wallet which you can list for
+            sale!
           </p>
 
           <div className="flex flex-col justify-center items-center md:flex-row md:space-x-8 p-4">
@@ -279,34 +329,42 @@ const AddItem = (props: Props) => {
 
             <form
               onSubmit={mintNft}
-              className="flex flex-col mt-8 md:mt-0 flex-1 p-2 space-y-2 w-full"
+              className="flex flex-col md:mt-0 flex-1 p-2 space-y-6 w-full"
             >
-              <label className="font-light" htmlFor="name">
-                Name Your NFT
-              </label>
-              <input
-                className="formField"
-                name="name"
-                id="name"
-                type="text"
-                placeholder="Name of NFT"
-              />
+              <div className="flex flex-col space-y-2">
+                <label className="" htmlFor="name">
+                  Name Your NFT
+                </label>
+                <input
+                  className="formField"
+                  name="name"
+                  id="name"
+                  type="text"
+                  placeholder="Name of NFT"
+                />
+              </div>
 
-              <label className="font-light" htmlFor="desc">
-                Description
-              </label>
-              <textarea
-                className="formField h-20"
-                name="description"
-                id="description"
-                placeholder="Enter Description"
-              />
+              <div className="flex flex-col space-y-2">
+                <label className="" htmlFor="desc">
+                  Description
+                </label>
+                <textarea
+                  className="formField h-20 py-2"
+                  name="description"
+                  id="description"
+                  required
+                  placeholder="Enter Description of the NFT like charecteristics such as hair color, eye color, dress color, ocaasion etc."
+                />
+              </div>
 
               <button
                 type="submit"
-                className="bg-froly-500 font-bold text-cascade-50 px-10 w-56 rounded-full py-4 md:mt-auto mx-auto md:ml-auto flex items-center space-x-4 justify-center"
+                className="buttons w-fit mx-auto flex items-center space-x-2"
+                disabled={loading}
               >
-                <span className="whitespace-nowrap">Add / Mint Item</span>
+                <span className="whitespace-nowrap">
+                  {loading ? 'Minting' : 'Add / Mint Item'}
+                </span>
                 {loading && <Spinner />}
               </button>
             </form>

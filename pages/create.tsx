@@ -9,14 +9,15 @@ import {
   useOwnedNFTs,
 } from '@thirdweb-dev/react';
 import { NATIVE_TOKEN_ADDRESS, NFT } from '@thirdweb-dev/sdk';
+import { BigNumber } from 'ethers';
 import { useRouter } from 'next/router';
 import React, { FormEvent, useState } from 'react';
+import toast from 'react-hot-toast';
+import { MdDeleteOutline } from 'react-icons/md';
 import Spinner from '../components/Spinner';
 import network from '../utils/network';
 
-type Props = {};
-
-const Create = (props: Props) => {
+const Create = () => {
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,
     'marketplace'
@@ -80,12 +81,13 @@ const Create = (props: Props) => {
         },
         {
           onSuccess(data, variable, context) {
-            console.log('SUCCESS', data, variable, context);
-            router.push('/');
+            toast.success('Created direct listing');
+            router.push('/nft-marketplace');
           },
 
           onError(error, variable, context) {
-            console.log('ERROR', error, variable, context);
+            toast.error('Something wen wrong while creating listing.');
+            console.error(error);
           },
         }
       );
@@ -105,16 +107,21 @@ const Create = (props: Props) => {
         },
         {
           onSuccess(data, variable, context) {
-            console.log('SUCCESS', data, variable, context);
-            router.push('/');
+            toast.success('Created auction listing');
+            router.push('/nft-marketplace');
           },
 
           onError(error, variable, context) {
-            console.log('ERROR', error, variable, context);
+            toast.error('Something wen wrong while creating listing.');
+            console.error(error);
           },
         }
       );
     }
+  };
+
+  const handleBurn = (tokenId: BigNumber) => {
+    collectionContract?.burn(tokenId);
   };
 
   return (
@@ -135,13 +142,17 @@ const Create = (props: Props) => {
               <div
                 key={nft?.metadata?.id}
                 onClick={() => setSelectedNft(nft)}
-                className={`flex flex-col space-y-2 card min-w-fit border-2 bg-gray-100 ${
+                className={`flex relative flex-col space-y-2 card min-w-fit border-2 bg-white-linen-50 ${
                   selectedNft?.metadata?.id === nft?.metadata?.id &&
-                  'border-blue-500'
+                  'border-froly-500'
                 }`}
               >
+                <MdDeleteOutline
+                  onClick={() => handleBurn(BigNumber.from(nft.metadata.id))}
+                  className="text-froly-500 text-lg absolute top-4 right-4"
+                />
                 <MediaRenderer
-                  className="h-48 rounded-lg"
+                  className="h-48 bg-gradient-to-tr from-froly to-mandys-pink rounded-lg"
                   src={nft?.metadata?.image}
                 />
                 <p className="text-lg truncate max-w-xs font-bold">
@@ -193,7 +204,7 @@ const Create = (props: Props) => {
 
               <button
                 disabled={isLoadingAuction || isLoadingDirect}
-                className="bg-blue-600 text-white rounded-lg p-4 mt-8 flex items-center justify-center space-x-2"
+                className="bg-froly-500 text-white rounded-lg p-4 mt-8 flex items-center justify-center space-x-2"
                 type="submit"
               >
                 <span>Create Listing</span>

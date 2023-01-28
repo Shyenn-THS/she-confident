@@ -28,11 +28,6 @@ const Home = (props: Props) => {
           <img src="/carousel/2.png" />
           <p className="legend">Build your confidence on Camera</p>
         </div>
-
-        <div>
-          <img src="/carousel/3.png" />
-          <p className="legend">Legend 3</p>
-        </div>
       </Carousel>
       <Stats />
       <About />

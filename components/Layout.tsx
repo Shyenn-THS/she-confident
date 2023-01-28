@@ -8,11 +8,11 @@ type Props = {
 
 const Layout: FC<Props> = ({ children }) => {
   return (
-    <>
+    <div>
       <Header />
       <main className="max-w-6xl mx-auto py-10">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

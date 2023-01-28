@@ -136,10 +136,7 @@ const SupportUs = (props: Props) => {
               </p>
             </div> */}
             <div className="my-4 flex justify-between">
-              <button
-                onClick={() => sendTransaction?.()}
-                className="h-10 w-32 bg-froly-500 text-sm text-white rounded-lg cursor-pointer transition-all hover:bg-rajah-200 "
-              >
+              <button onClick={() => sendTransaction?.()} className="buttons">
                 Donate Now
               </button>
             </div>
