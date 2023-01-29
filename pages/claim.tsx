@@ -152,7 +152,7 @@ const Claim = (props: Props) => {
             disabled={processing}
             className="px-10 flex items-center disabled:bg-opacity-80 disabled:animate-pulse justify-center space-x-3 py-4 bg-gradient-to-tr from-froly-700 max-w-sm to-rajah-600 rounded-full text-text-color-primary w-full"
           >
-            <span>Claim NFT</span>
+            <span>Claim NFT {'(1 SC)'}</span>
             {processing ? <Spinner /> : null}
           </button>
         </div>

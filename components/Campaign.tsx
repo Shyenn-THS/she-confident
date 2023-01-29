@@ -107,7 +107,7 @@ function Campaign({ projectNumber }: CampaignProps) {
         }),
       })
         .then(() => {
-          toast.success('Added 0.1SC to your waller for your Donation!!!');
+          toast.success('Added 0.1SC to your waller for your Contribution!!!');
         })
         .catch((err: any) => {
           console.error(err);

@@ -1,4 +1,9 @@
-import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react';
+import {
+  useAddress,
+  useContract,
+  useDisconnect,
+  useMetamask,
+} from '@thirdweb-dev/react';
 import Link from 'next/link';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MagnifyingGlassIcon, StarIcon } from '@heroicons/react/24/outline';
@@ -8,6 +13,17 @@ import { useRouter } from 'next/router';
 import { UIContext } from '../context/UIContext';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 import { HeartIcon } from '@heroicons/react/24/solid';
+import { BigNumber } from 'ethers';
+import { SC_ADDRESS } from '../utils/constants';
+import toast from 'react-hot-toast';
+
+type Balance = {
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+};
 
 const links = [
   {
@@ -77,6 +93,9 @@ const Header = () => {
   };
 
   const [dark, setDark] = useState(false);
+  const [balance, setBalance] = useState<Balance>();
+
+  const { contract: sheCoinContract } = useContract(SC_ADDRESS, 'token');
 
   useEffect(() => {
     if (darkMode) {
@@ -88,6 +107,17 @@ const Header = () => {
     }
     return () => {};
   }, [darkMode]);
+
+  useEffect(() => {
+    sheCoinContract
+      ?.balance()
+      .then((bal) => {
+        setBalance(bal);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  }, [sheCoinContract && address]);
 
   return (
     <div className="max-w-6xl mx-auto p-2">
@@ -101,6 +131,16 @@ const Header = () => {
             <button onClick={connectWithMetamask} className="buttons">
               Connect your wallet
             </button>
+          )}
+
+          {balance ? (
+            <h3 className="text-lg text-text-color-primary bg-rajah-600 p-1 px-2 rounded-md">
+              {balance.displayValue} {balance.symbol}
+            </h3>
+          ) : (
+            <h3 className="text-xl text-text-color-primary bg-rajah-600 p-1 px-2 rounded-md">
+              loading Balance ...
+            </h3>
           )}
 
           <Link href="/my-profile" className="link">
