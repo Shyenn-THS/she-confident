@@ -25,13 +25,6 @@ function Campaigns() {
 
   return (
     <main className="dark:text-text-color-primary">
-      <motion.h1
-        animate={{ y: [50, 0] }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        className="text-center font-bold text-3xl mb-2"
-      >
-        Empower Women Projects
-      </motion.h1>
       <div className="py-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {/* create an array starting from 0 index  */}
         {Array.from(Array(totalPublishedProjs).keys()).map(

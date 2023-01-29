@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
+import GearLoading from '../../components/GearLoading';
 import { useBlogData } from '../../utils/blogsHook/blogsHook';
 import { usePublishedBlog } from '../../utils/blogsHook/blogsRead';
 
@@ -11,6 +12,10 @@ const BlogPage = (props: Props) => {
   const blogId = router.query.blogId;
   const publishedBlogAddress = usePublishedBlog(parseInt(blogId as string));
   const data = useBlogData(publishedBlogAddress!);
+
+  const { categories, description, image, owner, social, title } = data;
+  if (!title || !description || !image || !owner || !social || !categories)
+    return <GearLoading loadingMessage="Loading Blog...." />;
 
   return (
     <article className="px-10 pb-28 space-y-4">

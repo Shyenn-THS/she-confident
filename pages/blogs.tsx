@@ -3,6 +3,7 @@ import { Result } from 'ethers/lib/utils.js';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import HeadingWithWallet from '../components/HeadingWithWallet';
 import { BlogData } from '../typings';
 import { useBlogData } from '../utils/blogsHook/blogsHook';
 import {
@@ -32,8 +33,9 @@ const Blogs = (props: Props) => {
     const data: BlogData = useBlogData(publishedBlogAddress!);
 
     const { categories, description, image, owner, social, title } = data;
+    if (!title || !description || !image || !owner || !social || !categories)
+      return;
 
-    if (!title || !description || !image || !owner || !social || !title) return;
     return (
       <Link href={`/blog/${blogId}`}>
         <div className="bg-white-linen-50 shadow-lg rounded-lg cursor-pointer flex flex-col max-w-sm dark:bg-background-secondary dark:text-text-color-primary">
@@ -90,12 +92,16 @@ const Blogs = (props: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-6">
-      {Array.from(Array(totalPublishedBlogs).keys()).map(
-        (blogId: number, i) => {
-          return <BlogCard blogId={blogId} key={i} />;
-        }
-      )}
+    <div className="space-y-4">
+      <HeadingWithWallet heading="Read Blogs" />
+      <div className="grid grid-cols-3 gap-6">
+        {Array.from(Array(totalPublishedBlogs).keys()).map(
+          (blogId: number, i) => {
+            if (i == 0 || i == 1) return;
+            return <BlogCard blogId={blogId} key={i} />;
+          }
+        )}
+      </div>
     </div>
   );
 };

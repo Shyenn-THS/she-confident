@@ -30,16 +30,16 @@ const links = [
     path: '/add-project',
   },
   {
-    name: 'Confidence Guide',
-    path: '/confidence-guide',
-  },
-  {
     name: 'Blogs',
     path: '/blogs',
   },
   {
     name: 'Add Blog',
     path: '/add-blog',
+  },
+  {
+    name: 'Confidence Guide',
+    path: '/confidence-guide',
   },
   {
     name: 'Support Us',
