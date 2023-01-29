@@ -22,6 +22,8 @@ export type BlogData = {
   categories: string;
   image: string;
   social: string;
+  ownerWallet: string;
+  timestamp: number;
 };
 
 export type Phrase = {

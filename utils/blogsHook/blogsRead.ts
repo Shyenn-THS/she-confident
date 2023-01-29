@@ -29,15 +29,14 @@ export function useTotalPublishedBlogs(): number | Result | undefined {
   return parseInt(totalPublishedBlogs.toString()) as number;
 }
 
-export function usePublishedBlog(index: number): string | Result | undefined {
+export function usePublishedBlog(index: number): `0x${string}` | undefined {
   const publishedBlogListReader = useBlogListReader({
     functionName: 'publishedBlogs',
     args: [index],
   });
-  const publishedBlog:
-    | Awaited<ReturnType<BlogList['publishedBlogs']>>
-    | Result
-    | undefined = publishedBlogListReader.data as string | Result | undefined;
+  const publishedBlog = publishedBlogListReader.data as
+    | `0x${string}`
+    | undefined;
 
   DEBUG && console.log('publishedBlog: ', publishedBlog);
 

@@ -1,20 +1,19 @@
-import { useProjectFunctionWriter } from '../utils/hooks';
-import { toWei } from '../utils/utilityFunctions';
-import { ConnectButton, useAddRecentTransaction } from '@rainbow-me/rainbowkit';
-import type { ChangeEvent, FormEvent } from 'react';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { ChangeEvent, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useAccount } from 'wagmi';
+import { BlogList } from '../blogscontract/src/types';
+import HeadingWithWallet from '../components/HeadingWithWallet';
+import Spinner from '../components/Spinner';
+import { BlogData } from '../typings';
+import { useBlogListWriter } from '../utils/blogsHook/blogsHook';
 import { DEBUG } from '../utils/constants';
 import StorageClient from '../utils/StorageClient';
-import toast from 'react-hot-toast';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { Project } from '../crowdfunding/src/types';
-import Spinner from './Spinner';
-import { useRouter } from 'next/router';
-import { Campaign } from '../typings';
-import HeadingWithWallet from './HeadingWithWallet';
 
-function CreateCampaign() {
+type Props = {};
+
+const AddBlog = (props: Props) => {
   const [preview, setPreview] = useState<string>();
   const [image, setImage] = useState<File>();
   const { address } = useAccount();
@@ -24,18 +23,15 @@ function CreateCampaign() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<Campaign>();
+  } = useForm<BlogData>();
   const [processing, setProcessing] = useState(false);
 
   // custom hook we made in hooks.ts for writing functions
-  const { writeAsync, isError } = useProjectFunctionWriter('createProject');
+  const { writeAsync, isError } = useBlogListWriter('createBlog');
 
-  // rainbow kit txn handler
-  const addRecentTransaction = useAddRecentTransaction();
-
-  const onSubmit: SubmitHandler<Campaign> = async (data) => {
+  const onSubmit: SubmitHandler<BlogData> = async (data) => {
     setProcessing(true);
-    const { title, founders, story, categories, amount, social, mail } = data;
+    const { title, description, categories, owner, social } = data;
 
     if (!address) {
       toast.error('Please connect your wallet to continue.');
@@ -51,31 +47,24 @@ function CreateCampaign() {
     }
 
     try {
-      DEBUG && console.log({ title, amount, story });
-      const amountToWei = toWei(amount.toString());
-      DEBUG && console.log('amountToWei: ', amountToWei);
-
       const imageURI = await new StorageClient().storeFiles(image);
 
-      const functionArgs: Parameters<Project['createProject']> = [
+      const functionArgs: Parameters<BlogList['createBlog']> = [
         title,
-        story,
-        founders,
+        description,
+        owner,
         categories,
         imageURI,
         social,
-        mail,
-        amountToWei,
       ];
 
-      if (!writeAsync)
-        throw Error('useProjectFunctionWriter Hook not working.');
+      if (!writeAsync) throw Error('Something Went wrong!');
       await writeAsync({
         recklesslySetUnpreparedArgs: functionArgs,
       }).then(() => {
         setProcessing(false);
         reset();
-        router.push('/empower');
+        router.push('/blogs');
       });
 
       // addRecentTransaction({
@@ -98,26 +87,26 @@ function CreateCampaign() {
 
   return (
     <main>
-      <HeadingWithWallet heading="Create new project listing" />
+      <HeadingWithWallet heading="Create new Blog" />
       <form
         className="bg-white dark:bg-background-secondary text-text-color-secondary dark:text-text-color-tertiary shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div className="w-full px-3 mb-6 md:mb-0">
             <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
-              Campaign Title
+              Blog Title
             </label>
             <input
               className="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
-              placeholder="Campaign Title"
+              placeholder="Blog Title"
               {...register('title')}
               required
             />
           </div>
 
-          <div className="w-full md:w-1/2 px-3">
+          {/* <div className="w-full md:w-1/2 px-3">
             <label
               className="block uppercase tracking-wide  text-xs font-bold mb-2"
               htmlFor="grid-password"
@@ -133,7 +122,7 @@ function CreateCampaign() {
               {...register('amount')}
               required
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -154,13 +143,13 @@ function CreateCampaign() {
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
-              Founders
+              Owner Name
             </label>
             <input
               className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
-              placeholder="Jhon Doe, Ashok Kumar, ...."
-              {...register('founders')}
+              placeholder="Jhon Doe, Ashok Kumar etc"
+              {...register('owner')}
               required
             />
           </div>
@@ -186,7 +175,7 @@ function CreateCampaign() {
         </div>
 
         <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <div className="w-full px-3 mb-6 md:mb-0">
             <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Social Links
             </label>
@@ -199,7 +188,7 @@ function CreateCampaign() {
             />
           </div>
 
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          {/* <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
               Mail
             </label>
@@ -210,18 +199,18 @@ function CreateCampaign() {
               {...register('mail')}
               required
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label className="block uppercase tracking-wide  text-xs font-bold mb-2">
-              Story
+              Description
             </label>
             <textarea
               className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="Story"
-              {...register('story')}
+              {...register('description')}
               required
             />
           </div>
@@ -230,7 +219,7 @@ function CreateCampaign() {
         <div className="w-full flex justify-center">
           <button disabled={processing} className="buttons" type="submit">
             {!processing ? (
-              <span>Create Campaign</span>
+              <span>Create Blog</span>
             ) : (
               <div className="flex space-x-2 justify-center items-center">
                 <span>Processing</span>
@@ -242,6 +231,6 @@ function CreateCampaign() {
       </form>
     </main>
   );
-}
+};
 
-export default CreateCampaign;
+export default AddBlog;

@@ -30,15 +30,12 @@ export function useTotalPublishedProjs(): number | Result | undefined {
   return parseInt(totalPublishedProjs.toString()) as number;
 }
 
-export function usePublishedProjs(index: number): string | Result | undefined {
+export function usePublishedProjs(index: number): `0x${string}` | undefined {
   const publishedProjsReader = useProjectFunctionReader({
     functionName: 'publishedProjs',
     args: [index],
   });
-  const publishedProjs:
-    | Awaited<ReturnType<Project['publishedProjs']>>
-    | Result
-    | undefined = publishedProjsReader.data as string | Result | undefined;
+  const publishedProjs = publishedProjsReader.data as `0x${string}` | undefined;
 
   DEBUG && console.log('publishedProjs: ', publishedProjs);
 

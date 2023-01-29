@@ -38,6 +38,10 @@ const links = [
     path: '/blogs',
   },
   {
+    name: 'Add Blog',
+    path: '/add-blog',
+  },
+  {
     name: 'Support Us',
     path: '/support-us',
   },

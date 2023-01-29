@@ -65,19 +65,20 @@ export function useFundProjectFunctionWriter({
   functionName,
 }: {
   functionName: string;
-  contractAddress: string | Result;
+  contractAddress: `0x${string}`;
 }): ReturnType<typeof useContractWrite> {
   const contractWrite = useContractWrite({
     address: contractAddress,
     abi: FUNDPROJECT_ABI,
     functionName: functionName,
+    mode: 'recklesslyUnprepared',
   });
 
   return contractWrite;
 }
 
 // create a generic hook to access read functions of contract
-export function useFundProjectData(contractAddress: string | Result) {
+export function useFundProjectData(contractAddress: `0x${string}`) {
   const {
     data: title,
     isError: isTitleError,

@@ -65,19 +65,20 @@ export function useBlogWriter({
   functionName,
 }: {
   functionName: string;
-  contractAddress: string | Result;
+  contractAddress: `0x${string}`;
 }): ReturnType<typeof useContractWrite> {
   const contractWrite = useContractWrite({
     address: contractAddress,
     abi: BLOG_ABI,
     functionName: functionName,
+    mode: 'recklesslyUnprepared',
   });
 
   return contractWrite;
 }
 
 // create a generic hook to access read functions of contract
-export function useBlogData(contractAddress: string | Result) {
+export function useBlogData(contractAddress: `0x${string}`) {
   const {
     data: title,
     isError: isTitleError,
@@ -98,8 +99,8 @@ export function useBlogData(contractAddress: string | Result) {
   });
   const {
     data: owner,
-    isError: isFoundersError,
-    isLoading: isFoundersLoading,
+    isError: isOwnerError,
+    isLoading: isOwnerLoading,
   } = useContractRead({
     address: contractAddress,
     abi: BLOG_ABI,
@@ -132,6 +133,33 @@ export function useBlogData(contractAddress: string | Result) {
     abi: BLOG_ABI,
     functionName: 'social',
   });
+  const {
+    data: ownerWallet,
+    isError: isOwnerWalletError,
+    isLoading: isOwnerWalletLoading,
+  } = useContractRead({
+    address: contractAddress,
+    abi: BLOG_ABI,
+    functionName: 'ownerWallet',
+  });
+  const {
+    data: timestamp,
+    isError: isTimestampError,
+    isLoading: isTimestampLoading,
+  } = useContractRead({
+    address: contractAddress,
+    abi: BLOG_ABI,
+    functionName: 'timestamp',
+  });
+  const {
+    data: likes,
+    isError: isLikesError,
+    isLoading: isLikesLoading,
+  } = useContractRead({
+    address: contractAddress,
+    abi: BLOG_ABI,
+    functionName: 'like',
+  });
 
   return {
     title,
@@ -140,5 +168,8 @@ export function useBlogData(contractAddress: string | Result) {
     categories,
     image,
     social,
+    ownerWallet,
+    timestamp,
+    likes,
   } as BlogData;
 }
