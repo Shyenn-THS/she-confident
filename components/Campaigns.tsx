@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { DEBUG } from '../utils/constants';
 import { useTotalPublishedProjs } from '../utils/read';
 import Campaign from './Campaign';
-import { motion } from 'framer-motion';
 import { Result } from 'ethers/lib/utils.js';
 
 function Campaigns() {

@@ -5,9 +5,10 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "*.ipfs.dweb.link",
       },
     ],
+    domains: ['']
   },
   typescript: {
     // !! WARN !!
