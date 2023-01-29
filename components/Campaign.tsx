@@ -11,6 +11,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import NFTModal from './NFTModal';
+import { useAccount } from 'wagmi';
 
 export type CampaignProps = { projectNumber: number };
 
@@ -21,6 +22,7 @@ function Campaign({ projectNumber }: CampaignProps) {
   const [modal, setModal] = useState(false);
   const publishedProjsAddress = usePublishedProjs(projectNumber);
   const data = useFundProjectData(publishedProjsAddress!);
+  const { address } = useAccount();
 
   const togelModal = () => {
     setModal(!modal);
@@ -72,6 +74,10 @@ function Campaign({ projectNumber }: CampaignProps) {
 
   const handleDonate = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (!address) {
+      toast.error('Please connect your wallet');
+      return;
+    }
     try {
       const valueToWei = toWei(value);
       DEBUG && console.log('valueToWei: ', valueToWei);
@@ -90,6 +96,22 @@ function Campaign({ projectNumber }: CampaignProps) {
       });
 
       toast.success(`Donated ${value} MATIC to ${title}`);
+
+      await fetch('/api/mint-sc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userAddress: address,
+        }),
+      })
+        .then(() => {
+          toast.success('Added 0.1SC to your waller for your Donation!!!');
+        })
+        .catch((err: any) => {
+          console.error(err);
+        });
     } catch (error: any) {
       console.log('errror >>> ', error);
       toast.error(error);
