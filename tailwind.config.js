@@ -79,7 +79,10 @@ module.exports = {
         'text-color-primary': '#f4f4f4',
         'text-color-secondary': '#403b3b',
         'text-color-tertiary': '#8c8c8c',
-      }
+      },
+      fontFamily: {
+    starjedi: ["starjedi"],
+  }
     },
   },
   plugins: [

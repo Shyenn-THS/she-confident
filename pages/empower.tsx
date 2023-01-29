@@ -7,7 +7,7 @@ type Props = {};
 const Empower = (props: Props) => {
   return (
     <div className="">
-      {/* <HeadingWithWallet heading="Empower Women Projects" /> */}
+      <HeadingWithWallet heading="Empower Women Projects" />
       <Campaigns />
     </div>
   );

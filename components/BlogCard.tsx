@@ -13,7 +13,7 @@ const BlogCard = ({ blogId }: { blogId: number }) => {
 
   const { categories, description, image, owner, social, title } = data!;
   if (!title || !description || !image || !owner || !social || !categories)
-    return;
+    return null;
 
   return (
     <motion.div
@@ -35,7 +35,7 @@ const BlogCard = ({ blogId }: { blogId: number }) => {
               fill
             />
 
-            <div className="absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between">
+            <div className="absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex flex-col space-y-2">
               <div className="">
                 <p className="font-bold line-clamp-1">{title}</p>
                 {/* <p className="">
@@ -47,7 +47,7 @@ const BlogCard = ({ blogId }: { blogId: number }) => {
                 </p> */}
               </div>
 
-              <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center">
+              <div className="flex flex-wrap gap-y-2 md:gap-x-2 items-center">
                 {categories.split(' ').map((category, i) => {
                   return (
                     <div

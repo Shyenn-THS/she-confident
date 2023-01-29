@@ -7,6 +7,7 @@ import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
 import { UIContext } from '../context/UIContext';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
+import { HeartIcon } from '@heroicons/react/24/solid';
 
 const links = [
   {
@@ -111,15 +112,12 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          <Link href="/empower" className="link">
-            Women Projects
-          </Link>
-          <Link href="/nft-marketplace" className="link">
+          {/* <Link href="/nft-marketplace" className="link">
             NFT Marketplace
           </Link>
           <Link href="/confidence-guide" className="link">
             Confidence Guide
-          </Link>
+          </Link> */}
 
           <div className="text-lg dark:text-text-color-primary cursor-pointer">
             {dark ? (
@@ -128,6 +126,13 @@ const Header = () => {
               <BsMoonFill className="" onClick={darkModeChangeHandler} />
             )}
           </div>
+
+          <Link href="/claim" className="link">
+            <div className="flex space-x-2 items-center text-froly-500">
+              <span className="whitespace-nowrap"> Claim Rewards </span>
+              <HeartIcon className="w-5 h-5" />
+            </div>
+          </Link>
 
           <Link href="/become-confident">
             <div className="flex items-center text-rajah-500 space-x-1 hover:link font-bold">

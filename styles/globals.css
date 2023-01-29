@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "starjedi";
+  src: url("/public/Fonts/starjedi/Starjedi.ttf");
+}
+
 @layer components {
     .connectWalletBtn {
         @apply bg-froly text-white rounded font-bold px-4 py-2 cursor-pointer

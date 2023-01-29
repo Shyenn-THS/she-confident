@@ -23,9 +23,9 @@ const Blogs = (props: Props) => {
   }
 
   return (
-    <div className="space-y-4">
-      {/* <HeadingWithWallet heading="Read Blogs" /> */}
-      <div className="grid grid-cols-3 gap-6">
+    <main className="">
+      <HeadingWithWallet heading="Read Blogs" />
+      <div className="grid grid-cols-3 gap-6 py-10">
         {Array.from(Array(totalPublishedBlogs).keys()).map(
           (blogId: number, i) => {
             if (i == 0 || i == 1) return;
@@ -33,7 +33,7 @@ const Blogs = (props: Props) => {
           }
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -11,7 +11,7 @@ const HeadingWithWallet = ({ heading }: Props) => {
     <motion.div
       animate={{ y: [50, 0] }}
       transition={{ duration: 1, ease: 'easeInOut' }}
-      className="py-8 px-12 my-6 bg-froly-500 rounded flex w-full justify-between"
+      className="py-8 px-12 bg-froly-500 rounded flex w-full justify-between"
     >
       <h1 className="text-4xl text-white">{heading}</h1>
       <ConnectButton
