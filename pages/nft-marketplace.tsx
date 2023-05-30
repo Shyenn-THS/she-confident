@@ -16,7 +16,15 @@ const NFTMarketplace: NextPage = () => {
     'marketplace'
   );
 
-  const { data: listings, isLoading } = useActiveListings(contract);
+  const {
+    data: listings,
+    error,
+    isError,
+    isLoading,
+  } = useActiveListings(contract);
+
+  console.log(listings);
+  console.log(isError, error);
 
   return (
     <div className="">

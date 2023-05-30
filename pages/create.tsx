@@ -125,8 +125,8 @@ const Create = () => {
   };
 
   return (
-    <div>
-      <main className="max-w-6xl mx-auto p-10 pt-2">
+    <main className="px-4 space-y-10 dark:text-white">
+      <div className="space-y-2">
         <h1 className="text-4xl font-semibold">List and Item</h1>
         <h2 className="text-xl font-semibold">
           Select an item you would like to sell
@@ -135,86 +135,84 @@ const Create = () => {
         <hr className="mb-5" />
 
         <p>Bellow you will find the NFT&apos;s you own in your wallet </p>
+      </div>
 
-        <div className="flex overflow-x-scroll space-x-2 p-4">
-          {ownedNfts?.data?.map((nft) => {
-            return (
-              <div
-                key={nft?.metadata?.id}
-                onClick={() => setSelectedNft(nft)}
-                className={`flex relative flex-col space-y-2 card min-w-fit border-2 bg-white-linen-50 ${
-                  selectedNft?.metadata?.id === nft?.metadata?.id &&
-                  'border-froly-500'
-                }`}
-              >
-                <MdDeleteOutline
-                  onClick={() => handleBurn(BigNumber.from(nft.metadata.id))}
-                  className="text-froly-500 text-lg absolute top-4 right-4"
-                />
-                <MediaRenderer
-                  className="h-48 bg-gradient-to-tr from-froly to-mandys-pink rounded-lg"
-                  src={nft?.metadata?.image}
-                />
-                <p className="text-lg truncate max-w-xs font-bold">
-                  {nft.metadata.name}
-                </p>
-                <p className="text-xs max-w-xs truncate">
-                  {nft.metadata.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {selectedNft && (
-          <form onSubmit={handleCreateListing}>
-            <div className="flex flex-col p-10">
-              <div className="grid grid-cols-2 gap-5">
-                <label className="border-r font-light" htmlFor="directListing">
-                  Direct Listing / Fixed Price
-                </label>
-                <input
-                  value="directListing"
-                  id="directListing"
-                  type="radio"
-                  name="listingType"
-                  className="h-10 w-10 ml-auto"
-                />
-
-                <label className="border-r font-light" htmlFor="auctionListing">
-                  Auction
-                </label>
-                <input
-                  id="auctionListing"
-                  type="radio"
-                  value="auctionListing"
-                  name="listingType"
-                  className="h-10 w-10 ml-auto"
-                />
-
-                <label htmlFor="price border-r font-light">Price</label>
-                <input
-                  type="text"
-                  name="price"
-                  id="price"
-                  placeholder="0.05"
-                  className="bg-gray-100 p-5"
-                />
-              </div>
-
-              <button
-                disabled={isLoadingAuction || isLoadingDirect}
-                className="bg-froly-500 text-white rounded-lg p-4 mt-8 flex items-center justify-center space-x-2"
-                type="submit"
-              >
-                <span>Create Listing</span>
-                {(isLoadingAuction || isLoadingDirect) && <Spinner />}
-              </button>
+      <div className="flex overflow-x-auto bg-mandys-pink-100 dark:bg-slate-800 p-4 space-x-2">
+        {ownedNfts?.data?.map((nft) => {
+          return (
+            <div
+              key={nft?.metadata?.id}
+              onClick={() => setSelectedNft(nft)}
+              className={`flex relative flex-col space-y-2 card min-w-fit border-2 bg-white-linen-50 ${
+                selectedNft?.metadata?.id === nft?.metadata?.id &&
+                'border-froly-500'
+              }`}
+            >
+              <MdDeleteOutline
+                onClick={() => handleBurn(BigNumber.from(nft.metadata.id))}
+                className="text-froly-500 text-lg absolute top-4 right-4"
+              />
+              <MediaRenderer
+                className="h-48 bg-gradient-to-tr from-froly to-mandys-pink rounded-lg"
+                src={nft?.metadata?.image}
+              />
+              <p className="text-lg truncate max-w-xs font-bold">
+                {nft.metadata.name}
+              </p>
+              <p className="text-xs max-w-xs truncate">
+                {nft.metadata.description}
+              </p>
             </div>
-          </form>
-        )}
-      </main>
-    </div>
+          );
+        })}
+      </div>
+
+      {selectedNft && (
+        <form className="space-y-8" onSubmit={handleCreateListing}>
+          <div className="grid grid-cols-2 gap-5">
+            <label className="border-r font-light" htmlFor="directListing">
+              Direct Listing / Fixed Price
+            </label>
+            <input
+              value="directListing"
+              id="directListing"
+              type="radio"
+              name="listingType"
+              className="h-10 w-10 ml-auto"
+            />
+
+            <label className="border-r font-light" htmlFor="auctionListing">
+              Auction
+            </label>
+            <input
+              id="auctionListing"
+              type="radio"
+              value="auctionListing"
+              name="listingType"
+              className="h-10 w-10 ml-auto"
+            />
+
+            <label htmlFor="price border-r font-light">Price</label>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              placeholder="0.05"
+              className="bg-gray-100 p-2 sm:p-4"
+            />
+          </div>
+
+          <button
+            disabled={isLoadingAuction || isLoadingDirect}
+            className="bg-froly-500 w-full text-white rounded-lg p-4 flex items-center justify-center space-x-2"
+            type="submit"
+          >
+            <span>Create Listing</span>
+            {(isLoadingAuction || isLoadingDirect) && <Spinner />}
+          </button>
+        </form>
+      )}
+    </main>
   );
 };
 
