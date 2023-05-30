@@ -36,8 +36,8 @@ const Contact = () => {
   }, [isSubmitSuccessful]);
 
   return (
-    <div>
-      <section className="bg-mandys-pink-50 dark:bg-background-secondary dark:text-text-color-tertiary text-text-color-secondary">
+    <main className="px-4">
+      <section className="bg-mandys-pink-50 rounded-lg dark:bg-background-secondary dark:text-text-color-tertiary text-text-color-secondary">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-bold text-center text-froly-400">
             Contact Us
@@ -115,7 +115,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

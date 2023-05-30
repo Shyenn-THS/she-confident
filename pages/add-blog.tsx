@@ -86,7 +86,7 @@ const AddBlog = (props: Props) => {
   }
 
   return (
-    <main>
+    <main className="px-4 space-y-10">
       <HeadingWithWallet heading="Create new Blog" />
       <form
         className="bg-white dark:bg-background-secondary text-text-color-secondary dark:text-text-color-tertiary shadow-md rounded px-8 pt-6 pb-8 mb-4"

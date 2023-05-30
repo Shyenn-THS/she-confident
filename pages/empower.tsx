@@ -6,10 +6,10 @@ type Props = {};
 
 const Empower = (props: Props) => {
   return (
-    <div className="">
+    <main className="px-4 space-y-10">
       <HeadingWithWallet heading="Empower Women Projects" />
       <Campaigns />
-    </div>
+    </main>
   );
 };
 

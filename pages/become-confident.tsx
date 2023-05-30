@@ -247,32 +247,33 @@ const AddItem = () => {
   const { width, height } = useWindowSize();
 
   return (
-    <main>
+    <main className="px-4 space-y-10">
       {confetti ? (
         <div className="absolute z-10 w-full h-screen">
           <Confetti width={width} height={height} />
         </div>
       ) : null}
-      <section className="flex flex-col sm:flex-row items-center space-x-4">
+      <section className="flex flex-col sm:flex-row items-center gap-4">
         <video
-          className="w-[600px] h-[600px]"
+          className="w-[400px] lg:w-[600px]"
           src="/ConfidentFace.mp4"
           controls={false}
           autoPlay={true}
           loop={true}
           ref={videoRef}
         ></video>
-        <div className="flex space-y-4 items-center flex-1 flex-col">
+
+        <div className="flex space-y-4 w-full items-center flex-1 flex-col">
           <Quotes quote={phrase?.phrase!} author={phrase?.owner!} />
           {pageLoaded ? (
             <AudioReactRecorder
-              canvasWidth={400}
+              canvasWidth={350}
               canvasHeight={100}
               state={record}
               onStop={onData}
             />
           ) : null}
-          <div className="py-4 w-3/4 mx-auto">
+          <div className="py-4 sm:w-3/4 mx-auto">
             <p className="text-cascade-700 dark:text-text-color-tertiary">
               <span className="font-bold text-cascade-900 dark:text-text-color-primary">
                 You Said:
@@ -292,10 +293,10 @@ const AddItem = () => {
               %
             </p>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 w-full sm:w-fit">
             <button
               disabled={isProcessing}
-              className="buttons"
+              className="buttons w-full"
               onClick={recordVideo}
             >
               {!isProcessing ? (
@@ -311,16 +312,16 @@ const AddItem = () => {
       </section>
 
       {!isProcessing ? (
-        <section className="max-w-6xl mx-auto p-10 dark:text-text-color-primary">
+        <section className="max-w-6xl mx-auto dark:text-text-color-primary">
           <h1 className="text-4xl font-bold pt-5">Add an Item to Collection</h1>
           <h2 className="text-xl font-semibold pt-5">Item Details</h2>
-          <p className="pb-5">
+          <p className="pb-5 pt-2">
             By adding item to the collection, you&apos;re essentially Minting an
             NFT of your confident face into your wallet which you can list for
             sale!
           </p>
 
-          <div className="flex flex-col justify-center items-center md:flex-row md:space-x-8 p-4">
+          <div className="flex flex-col justify-center items-center md:flex-row md:space-x-8 py-4 space-y-4 sm:space-y-0 sm:p-4">
             <Image
               className="object-contain bg-gradient-to-tr from-froly to-mandys-pink"
               src={preview ? preview : '/add-nft.svg'}
@@ -361,10 +362,10 @@ const AddItem = () => {
 
               <button
                 type="submit"
-                className="buttons w-fit mx-auto flex items-center space-x-2"
+                className="buttons w-full sm:w-fit mx-auto flex items-center space-x-2"
                 disabled={loading}
               >
-                <span className="whitespace-nowrap">
+                <span className="whitespace-nowrap mx-auto">
                   {loading ? 'Minting' : 'Add / Mint Item'}
                 </span>
                 {loading && <Spinner />}

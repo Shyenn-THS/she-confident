@@ -26,7 +26,7 @@ const BlogCard = ({ blogId }: { blogId: number }) => {
       viewport={{ once: true }}
     >
       <Link href={`/blog/${blogId}`}>
-        <div className="bg-white-linen-50 shadow-lg rounded-lg cursor-pointer flex flex-col max-w-sm dark:bg-background-secondary dark:text-text-color-primary">
+        <div className="bg-white-linen-50 shadow-lg rounded-lg cursor-pointer flex flex-col dark:bg-background-secondary dark:text-text-color-primary">
           <div className="relative w-full h-80 drop-shadow-xl">
             <Image
               className="object-cover hover:scale-105 object-left lg:object-center transition-transform duration-200 ease-out"

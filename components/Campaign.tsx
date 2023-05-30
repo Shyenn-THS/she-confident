@@ -141,7 +141,7 @@ function Campaign({ projectNumber }: CampaignProps) {
           duration: 1,
         }}
         viewport={{ once: true }}
-        className="max-w-sm rounded overflow-hidden shadow-lg pb-4 group cursor-pointer dark:bg-background-secondary"
+        className="w-full rounded overflow-hidden shadow-lg pb-4 group cursor-pointer dark:bg-background-secondary"
       >
         <img
           src={

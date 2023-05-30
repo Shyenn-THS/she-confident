@@ -122,7 +122,7 @@ const Header = () => {
   return (
     <div className="max-w-6xl mx-auto p-4">
       <nav className="flex justify-between items-center">
-        <div className="flex items-center space-x-4 text-sm">
+        <div className="flex items-center space-x-2 sm:space-x-4 text-sm">
           {address ? (
             <button onClick={disconnect} className="buttons">
               Hi, {address.slice(0, 5) + '...' + address.slice(-4)}
@@ -151,7 +151,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex items-center space-x-4 text-sm">
+        <div className="flex items-center space-x-2 sm:space-x-4 text-sm">
           <div className="text-lg dark:text-text-color-primary cursor-pointer">
             {dark ? (
               <BsFillSunFill className="" onClick={darkModeChangeHandler} />

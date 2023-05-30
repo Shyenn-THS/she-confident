@@ -27,8 +27,8 @@ const SupportUs = (props: Props) => {
   });
 
   return (
-    <div className="flex justify-center items-center bg-froly-400 min-h-screen">
-      <div className="h-[650px] my-10 w-96 md:w-4/5 bg-white rounded-lg md:rounded-lg">
+    <div className="flex justify-center items-center bg-froly-400 p-4">
+      <div className=" bg-white rounded-lg">
         <div className="flex h-full w-full">
           <div className="h-full hidden md:block relative rounded-lg overflow-hidden bg-[url('https://imgur.com/2hR32WP.jpg')] w-full">
             <img

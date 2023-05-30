@@ -23,9 +23,9 @@ const Blogs = (props: Props) => {
   }
 
   return (
-    <main className="">
+    <main className="px-4 space-y-10">
       <HeadingWithWallet heading="Read Blogs" />
-      <div className="grid grid-cols-3 gap-6 py-10">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from(Array(totalPublishedBlogs).keys()).map(
           (blogId: number, i) => {
             if (i == 0 || i == 1) return;

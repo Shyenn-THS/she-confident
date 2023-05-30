@@ -117,16 +117,16 @@ const Claim = (props: Props) => {
   };
 
   return (
-    <main className="space-y-10 dark:text-text-color-primary">
+    <main className="px-4 space-y-10 dark:text-text-color-primary">
       {nft && modal ? (
         <ClaimedNFTModal data={nft} closeModal={() => setModal(false)} />
       ) : null}
-      <div className="flex justify-between flex-1 items-center">
+      <div className="flex flex-col space-y-8 text-center sm:text-left sm:space-y-0 sm:flex-row justify-between flex-1 items-center">
         <div className="space-y-10">
-          <h1 className="text-7xl max-w-xl font-mono font-light">
+          <h1 className="text-5xl lg:text-7xl max-w-xl font-mono font-light">
             Claim free <span className="text-rajah-500">StarWar NFT</span> for
             your{' '}
-            <span className="text-mandys-pink-500 space-x-2 whitespace-nowrap flex items-center">
+            <span className="text-mandys-pink-500 space-x-2 whitespace-nowrap w-full justify-center sm:justify-start flex items-center">
               Donations! <HeartIcon className="h-10 w-10" />
             </span>
           </h1>
@@ -150,13 +150,14 @@ const Claim = (props: Props) => {
           <button
             onClick={handleClaimNFT}
             disabled={processing}
-            className="px-10 flex items-center disabled:bg-opacity-80 disabled:animate-pulse justify-center space-x-3 py-4 bg-gradient-to-tr from-froly-700 max-w-sm to-rajah-600 rounded-full text-text-color-primary w-full"
+            className="px-10 w-full flex mx-auto sm:mx-0 items-center disabled:bg-opacity-80 disabled:animate-pulse justify-center space-x-3 py-4 bg-gradient-to-tr from-froly-700 max-w-sm to-rajah-600 rounded-full text-text-color-primary"
           >
             <span>Claim NFT {'(1 SC)'}</span>
             {processing ? <Spinner /> : null}
           </button>
         </div>
-        <div className=" relative">
+
+        <div className="relative">
           <Image
             //   fill
             height={500}
@@ -171,7 +172,7 @@ const Claim = (props: Props) => {
       <h1 className="text-4xl">Unclaimed NFTs</h1>
       <hr className="w-full" />
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
         {unclaimedNfts?.map((nft) => {
           const { id, image, name, description } = nft;
           return (
