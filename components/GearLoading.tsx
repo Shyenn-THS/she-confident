@@ -7,7 +7,7 @@ type Props = {
 const GearLoading = (props: Props) => {
   const { loadingMessage } = props;
   return (
-    <div className="bg-white-line flex w-full h-full justify-center items-center duration-300 transition-opacity">
+    <div className="bg-white-line flex w-3/4 mx-auto md:w-full h-full justify-center items-center duration-300 transition-opacity">
       <div className="flex-col justify-center items-center">
         <section className="">
           <svg viewBox="0 0 860.1 876.5">

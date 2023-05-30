@@ -8,7 +8,7 @@ type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <main>
+    <main className="px-4 space-y-10">
       <Carousel
         autoPlay={true}
         stopOnHover={true}

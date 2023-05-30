@@ -59,10 +59,12 @@ const About = () => {
   };
 
   return (
-    <section className="my-16 bg-white-linen-50 dark:text-text-color-primary dark:bg-background-secondary rounded-lg py-6">
+    <section className="bg-white-linen-50 dark:text-text-color-primary dark:bg-background-secondary rounded-lg py-6">
       <div className="container mx-auto p-4 space-y-2 text-center">
-        <h2 className="text-5xl font-bold">Built to empower every Women</h2>
-        <p className="dark:text-text-color-tertiary text-text-color-secondary">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          Built to empower every Women
+        </h2>
+        <p className="dark:text-text-color-tertiary text-text-color-secondary text-sm md:text-base">
           A decentralized platform build to empower and support womens on their
           journey.
         </p>

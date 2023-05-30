@@ -15,7 +15,7 @@ const Logo = (props: Props) => {
   return (
     <Link
       href="/"
-      className="h-16 w-16 flex justify-center items-center sm:w-28 md:w-44 cursor-pointer flex-shrink-0"
+      className="h-14 sm:h-16 w-fit flex justify-center items-center cursor-pointer flex-shrink-0"
     >
       <Image
         src="/logo.svg"
@@ -25,7 +25,7 @@ const Logo = (props: Props) => {
         height={100}
       />
       <h1
-        className={`${logo_font.className} text-3xl text-cascade-800 -space-y-2 flex flex-col`}
+        className={`${logo_font.className} hidden sm:flex text-3xl text-cascade-800 -space-y-2 flex-col`}
       >
         <span className="text-froly flex space-x-5 items-center">
           She <SparklesIcon className="w-5 h-5" />

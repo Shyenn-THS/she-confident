@@ -120,7 +120,7 @@ const Header = () => {
   }, [sheCoinContract && address]);
 
   return (
-    <div className="max-w-6xl mx-auto p-2">
+    <div className="max-w-6xl mx-auto p-4">
       <nav className="flex justify-between items-center">
         <div className="flex items-center space-x-4 text-sm">
           {address ? (
@@ -134,31 +134,24 @@ const Header = () => {
           )}
 
           {balance ? (
-            <h3 className="text-lg text-text-color-primary bg-rajah-600 p-1 px-2 rounded-md">
+            <h3 className="text-text-color-primary bg-rajah-600 py-2 px-4 text-sm rounded-md">
               {balance.displayValue} {balance.symbol}
             </h3>
           ) : (
-            <h3 className="text-xl text-text-color-primary bg-rajah-600 p-1 px-2 rounded-md">
+            <h3 className=" text-text-color-primary bg-rajah-600 py-2 px-4 text-sm rounded-md">
               loading Balance ...
             </h3>
           )}
 
-          <Link href="/my-profile" className="link">
+          <Link href="/my-profile" className="link hidden md:block">
             My Profile
           </Link>
-          <Link href="/contact" className="link">
+          <Link href="/contact" className="link hidden md:block">
             Help &#38; Contact
           </Link>
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          {/* <Link href="/nft-marketplace" className="link">
-            NFT Marketplace
-          </Link>
-          <Link href="/confidence-guide" className="link">
-            Confidence Guide
-          </Link> */}
-
           <div className="text-lg dark:text-text-color-primary cursor-pointer">
             {dark ? (
               <BsFillSunFill className="" onClick={darkModeChangeHandler} />
@@ -169,14 +162,17 @@ const Header = () => {
 
           <Link href="/claim" className="link">
             <div className="flex space-x-2 items-center text-froly-500">
-              <span className="whitespace-nowrap"> Claim Rewards </span>
+              <span className="whitespace-nowrap hidden lg:block">
+                {' '}
+                Claim Rewards{' '}
+              </span>
               <HeartIcon className="w-5 h-5" />
             </div>
           </Link>
 
           <Link href="/become-confident">
             <div className="flex items-center text-rajah-500 space-x-1 hover:link font-bold">
-              <span>Become Confident</span>
+              <span className="hidden lg:block">Become Confident</span>
               <StarIcon className="h-4" />
             </div>
           </Link>
@@ -187,32 +183,36 @@ const Header = () => {
 
       <form
         onSubmit={handleSearch}
-        className="flex flex-wrap items-center space-x-5 py-5"
+        className="flex flex-col w-full space-y-4 sm:space-y-0 sm:flex-row items-center sm:space-x-5 py-5"
       >
-        <Logo />
+        <div className="w-full items-center flex space-x-2 sm:space-x-5">
+          <Logo />
+          <div className="flex flex-1 space-x-5 items-center">
+            <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black dark:bg-background-secondary border-2 flex-1">
+              <MagnifyingGlassIcon className="w-5 text-text-color-tertiary" />
+              <input
+                type="text"
+                name="search"
+                id="searchBar"
+                placeholder="Search for Anything"
+                className="flex-1 outline-none bg-transparent dark:text-text-color-tertiary"
+                ref={searchRef}
+              />
+            </div>
+          </div>
 
-        <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black dark:bg-background-secondary border-2 flex-1">
-          <MagnifyingGlassIcon className="w-5 text-text-color-tertiary" />
-          <input
-            type="text"
-            name="search"
-            id="searchBar"
-            placeholder="Search for Anything"
-            className="flex-1 outline-none bg-transparent dark:text-text-color-tertiary"
-            ref={searchRef}
-          />
+          <button
+            type="submit"
+            className="px-5 hidden lg:block w-fit md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-500 text-froly-500 hover:bg-froly-400 hover:text-white cursor-pointer"
+          >
+            Search
+          </button>
         </div>
 
-        <button
-          type="submit"
-          className="px-5 w-full sm:w-fit md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-500 text-froly-500 hover:bg-froly-400 hover:text-white cursor-pointer"
-        >
-          Search
-        </button>
         <Link
           type="button"
           href="/create"
-          className="bg-froly-500 text-white px-5 md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-700 hover:bg-froly-600"
+          className="bg-froly-500 text-white px-5 md:px-10 py-2 border-2 transition-colors ease-in-out duration-200 border-froly-700 hover:bg-froly-600 w-full sm:w-fit whitespace-nowrap text-center"
         >
           List Your NFT
         </Link>
@@ -220,7 +220,7 @@ const Header = () => {
 
       <hr />
 
-      <ul className="flex justify-center items-center py-3 space-x-6 text-xs md:text-sm whitespace-nowrap">
+      <ul className="flex flex-wrap gap-4 xl:gap-0 justify-center items-center py-3 xl:space-x-6 text-sm whitespace-nowrap">
         {links.map((link, idx) => {
           const { name, path } = link;
           return (

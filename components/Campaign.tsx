@@ -158,8 +158,8 @@ function Campaign({ projectNumber }: CampaignProps) {
           >
             {title}
           </h3>
-          <ul className="flex w-full flex-wrap">
-            {categories.split(',').map((category, idx) => {
+          <ul className="flex w-full overflow-x-hidden">
+            {categories?.split(',').map((category, idx) => {
               return (
                 <li
                   className="projectBadge whitespace-nowrap text-xs"

@@ -41,7 +41,7 @@ const Stats = () => {
     );
   };
   return (
-    <section className="p-6 my-6 bg-mandys-pink dark:bg-background-secondary">
+    <section className="p-6 bg-mandys-pink dark:bg-background-secondary">
       <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
         <StatsCard name="NFTs" value={listings?.length!} Icon={MdCollections} />
         {totalProjects ? (
