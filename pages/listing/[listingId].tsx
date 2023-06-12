@@ -12,7 +12,7 @@ import {
   useNetworkMismatch,
   useOffers,
 } from '@thirdweb-dev/react';
-import { ChainId, ListingType, NATIVE_TOKENS } from '@thirdweb-dev/sdk';
+import { ListingType, NATIVE_TOKENS } from '@thirdweb-dev/sdk';
 import { ethers } from 'ethers';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';

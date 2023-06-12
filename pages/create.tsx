@@ -198,7 +198,7 @@ const Create = () => {
               name="price"
               id="price"
               placeholder="0.05"
-              className="bg-gray-100 p-2 sm:p-4"
+              className="bg-gray-100 dark:bg-slate-800 p-2 sm:p-4"
             />
           </div>
 

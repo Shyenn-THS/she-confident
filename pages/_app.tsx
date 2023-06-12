@@ -85,7 +85,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         chains={chains}
         coolMode
       >
-        <ThirdwebProvider desiredChainId={network}>
+        <ThirdwebProvider activeChain="mumbai">
           <Toaster
             toastOptions={{
               duration: 5000,
