@@ -3,7 +3,7 @@ import { MdCollections, MdFaceRetouchingNatural } from 'react-icons/md';
 import { BiHappyBeaming, BiNotepad } from 'react-icons/bi';
 import { RiFundsFill } from 'react-icons/ri';
 import { FaDonate } from 'react-icons/fa';
-import { KeyPointProps } from '../typings';
+import { KeyPointProps } from '../interfaces/typings';
 
 const points = [
   {

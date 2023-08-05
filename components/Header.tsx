@@ -6,15 +6,14 @@ import {
   useTokenBalance,
 } from '@thirdweb-dev/react';
 import Link from 'next/link';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MagnifyingGlassIcon, StarIcon } from '@heroicons/react/24/outline';
 import Logo from './Logo';
-import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
-import { UIContext } from '../context/UIContext';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 import { HeartIcon } from '@heroicons/react/24/solid';
-import { links, SC_ADDRESS } from '../utils/constants';
+import { links } from '../utils/constants';
+import useUiStore from '../store/uiStore';
 
 const Header = () => {
   const router = useRouter();
@@ -30,32 +29,30 @@ const Header = () => {
   const disconnect = useDisconnect();
   const address = useAddress();
 
-  // Darkmode
-  const { state, dispatch } = useContext(UIContext);
-  const { darkMode } = state;
+  const [darkMode, setDarkMode] = useUiStore((state) => [
+    state.darkMode,
+    state.setDarkMode,
+  ]);
 
-  const darkModeChangeHandler = () => {
-    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
-    const newDarkMode = !darkMode;
-    jsCookie.set('darkMode', newDarkMode ? 'ON' : 'OFF');
-  };
-
-  const [dark, setDark] = useState(false);
-
-  const { contract: sheCoinContract } = useContract(SC_ADDRESS, 'token');
+  const { contract: sheCoinContract } = useContract(
+    process.env.NEXT_PUBLIC_SHECOIN_CONTRACT,
+    'token'
+  );
   const {
     data: balance,
     isLoading,
     error,
   } = useTokenBalance(sheCoinContract, address);
 
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
-      setDark(true);
     } else {
       document.documentElement.classList.remove('dark');
-      setDark(false);
     }
     return () => {};
   }, [darkMode]);
@@ -65,26 +62,28 @@ const Header = () => {
       <nav className="flex justify-between items-center">
         <div className="flex items-center space-x-2 sm:space-x-4 text-sm">
           {address ? (
-            <button onClick={disconnect} className="buttons">
-              Hi, {address.slice(0, 5) + '...' + address.slice(-4)}
-            </button>
+            <div className="flex items-center space-x-2">
+              <button onClick={disconnect} className="buttons">
+                Hi, {address.slice(0, 5) + '...' + address.slice(-4)}
+              </button>
+
+              <h3 className="text-text-color-primary bg-rajah-600 py-2 px-4 text-sm rounded-md">
+                {isLoading ? (
+                  'Loading...'
+                ) : error ? (
+                  'Error'
+                ) : (
+                  <span>
+                    {balance!.displayValue} {balance!.symbol}
+                  </span>
+                )}
+              </h3>
+            </div>
           ) : (
             <button onClick={() => connectWithMetamask()} className="buttons">
               Connect your wallet
             </button>
           )}
-
-          <h3 className="text-text-color-primary bg-rajah-600 py-2 px-4 text-sm rounded-md">
-            {isLoading ? (
-              'Loading...'
-            ) : error ? (
-              'Error'
-            ) : (
-              <span>
-                {balance!.displayValue} {balance!.symbol}
-              </span>
-            )}
-          </h3>
 
           <Link href="/my-profile" className="link hidden md:block">
             My Profile
@@ -95,12 +94,11 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4 text-sm">
-          <div className="text-lg dark:text-text-color-primary cursor-pointer">
-            {dark ? (
-              <BsFillSunFill className="" onClick={darkModeChangeHandler} />
-            ) : (
-              <BsMoonFill className="" onClick={darkModeChangeHandler} />
-            )}
+          <div
+            onClick={handleDarkMode}
+            className="text-lg dark:text-text-color-primary cursor-pointer"
+          >
+            {darkMode ? <BsFillSunFill /> : <BsMoonFill />}
           </div>
 
           <Link href="/claim" className="link">

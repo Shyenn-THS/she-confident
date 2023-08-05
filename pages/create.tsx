@@ -8,14 +8,13 @@ import {
   useNetworkMismatch,
   useOwnedNFTs,
 } from '@thirdweb-dev/react';
-import { NATIVE_TOKEN_ADDRESS, NFT } from '@thirdweb-dev/sdk';
+import { ChainId, NATIVE_TOKEN_ADDRESS, NFT } from '@thirdweb-dev/sdk';
 import { BigNumber } from 'ethers';
 import { useRouter } from 'next/router';
 import React, { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { MdDeleteOutline } from 'react-icons/md';
 import Spinner from '../components/Spinner';
-import network from '../utils/network';
 
 const Create = () => {
   const { contract } = useContract(
@@ -53,7 +52,7 @@ const Create = () => {
   const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (networkMismatch) {
-      switchNetwork && switchNetwork(network);
+      switchNetwork && switchNetwork(ChainId.Mumbai);
       return;
     }
 

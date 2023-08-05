@@ -1,9 +1,3 @@
-import { DEBUG } from '../utils/constants';
-import {
-  useFundProjectFunctionWriter,
-  useFundProjectData,
-} from '../utils/hooks';
-import { usePublishedProjs } from '../utils/read';
 import { fromWei, toWei } from '../utils/utilityFunctions';
 import { useAddRecentTransaction } from '@rainbow-me/rainbowkit';
 import type { ChangeEvent, MouseEvent } from 'react';
@@ -12,16 +6,21 @@ import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import NFTModal from './NFTModal';
 import { useAccount } from 'wagmi';
+import {
+  useFundProjectData,
+  useFundProjectFunctionWriter,
+  usePublishedProjs,
+} from '../hooks/projectHooks';
 
 export type CampaignProps = { projectNumber: number };
 
 function Campaign({ projectNumber }: CampaignProps) {
-  DEBUG && console.log('projectNumber: ', projectNumber);
-
   const [value, setValue] = useState<string>('');
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
+
   const publishedProjsAddress = usePublishedProjs(projectNumber);
-  const data = useFundProjectData(publishedProjsAddress!);
+  if (!publishedProjsAddress) return <></>;
+  const data = useFundProjectData(publishedProjsAddress);
   const { address } = useAccount();
 
   const togelModal = () => {
@@ -38,20 +37,7 @@ function Campaign({ projectNumber }: CampaignProps) {
     mail,
     goalAmount,
     raisedAmount,
-  } = data!;
-
-  DEBUG &&
-    console.log({
-      title,
-      description,
-      founders,
-      categories,
-      image,
-      social,
-      mail,
-      goalAmount,
-      raisedAmount,
-    });
+  } = data;
 
   // rainbow kit txn handler
   const addRecentTransaction = useAddRecentTransaction();
@@ -66,9 +52,6 @@ function Campaign({ projectNumber }: CampaignProps) {
     e.preventDefault();
 
     const inputValue = e.target.value;
-    DEBUG && console.log('value: ', inputValue);
-
-    // set value
     setValue(inputValue);
   };
 
@@ -80,7 +63,6 @@ function Campaign({ projectNumber }: CampaignProps) {
     }
     try {
       const valueToWei = toWei(value);
-      DEBUG && console.log('valueToWei: ', valueToWei);
 
       if (!writeAsync)
         throw Error('useFundProjectFunctionWriter Hook not working.');

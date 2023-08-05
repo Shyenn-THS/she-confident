@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getApps, getApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-
-// const serviceAccount = require('./permisions.json');
 // import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
@@ -21,4 +18,5 @@ const apps = getApps();
 const app = !apps.length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
 // export const analytics = getAnalytics(app);
+
 export default db;

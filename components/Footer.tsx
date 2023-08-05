@@ -1,53 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
+import { company, social, supportors, womens } from '../utils/constants';
 import Logo from './Logo';
 
-type Props = {};
-
-const social = ['https://shivangmishra.hashnode.dev/'];
-const womens = [
-  {
-    name: 'Become Confident',
-    href: '/become-confident',
-  },
-  {
-    name: 'Add Projects',
-    href: '/add-project',
-  },
-  {
-    name: 'Confidence Guide',
-    href: '/confidence-guide',
-  },
-];
-
-const company = [
-  {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'Support Us',
-    href: '/support-us',
-  },
-  {
-    name: 'Contact Us',
-    href: '/contact',
-  },
-];
-
-const supportors = [
-  {
-    name: 'Bye NFTs',
-    href: '/nft-marketplace',
-  },
-  {
-    name: 'Invest in Women Projects',
-    href: '/empower',
-  },
-];
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer className="px-4 divide-y text-cascade-700 dark:bg-background-secondary dark:text-text-color-primary bg-white-linen max-w-6xl mx-auto ">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">

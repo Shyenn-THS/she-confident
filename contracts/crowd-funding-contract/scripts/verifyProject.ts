@@ -3,9 +3,9 @@ import { config } from 'dotenv';
 config();
 
 async function main() {
-  //add the contract address that you deployed in the prev steps
   const { PUBLIC_ADDRESS } = process.env;
   const contractAddress = PUBLIC_ADDRESS;
+
   try {
     await run('verify:verify', {
       address: contractAddress,

@@ -5,13 +5,7 @@ config();
 const { PUBLIC_ADDRESS } = process.env;
 
 async function main() {
-  const contract = await ethers.getContractAt(
-    'Project',
-    //add the contract address that you just deployed in the last step
-    PUBLIC_ADDRESS!
-  ); //line 6
-
-  //   console.log(contract);
+  const contract = await ethers.getContractAt('Project', PUBLIC_ADDRESS!);
 
   await contract.createProject(
     'SheConfident',

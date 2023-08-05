@@ -1,11 +1,11 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  const CampaignFactory = await ethers.getContractFactory('Project');
+  const BlogList = await ethers.getContractFactory('BlogList');
 
   // Start deployment, returning a promise that resolves to a contract object
-  const campaignFactory = await CampaignFactory.deploy();
-  console.log('Contract deployed to address:', campaignFactory.address);
+  const blogList = await BlogList.deploy();
+  console.log('Contract deployed to address:', blogList.address);
 }
 
 main()

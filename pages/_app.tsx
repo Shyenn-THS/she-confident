@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
-import network from '../utils/network';
 import Layout from '../components/Layout';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { polygonMumbai } from 'wagmi/chains';
@@ -19,8 +18,6 @@ import {
   walletConnectWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import '@rainbow-me/rainbowkit/styles.css';
-import { Toaster } from 'react-hot-toast';
-import { UIProvider } from '../context/UIContext';
 
 const { chains, provider } = configureChains(
   [polygonMumbai],
@@ -49,26 +46,6 @@ const connectors = connectorsForWallets([
     groupName: 'Recommended',
     wallets,
   },
-  // {
-  //   groupName: 'Others',
-  //   wallets: [
-  //     wallet.argent({ chains }),
-  //     wallet.brave({
-  //       chains,
-  //       shimDisconnect: true,
-  //     }),
-  //     wallet.imToken({ chains }),
-  //     wallet.injected({
-  //       chains,
-  //       shimDisconnect: true,
-  //     }),
-  //     wallet.ledger({
-  //       chains,
-  //     }),
-  //     wallet.steak({ chains }),
-  //     wallet.trust({ chains, shimDisconnect: true }),
-  //   ],
-  // },
 ]);
 
 const wagmiClient = createClient({
@@ -86,16 +63,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         coolMode
       >
         <ThirdwebProvider activeChain="mumbai">
-          <Toaster
-            toastOptions={{
-              duration: 5000,
-            }}
-          />
-          <UIProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </UIProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThirdwebProvider>
       </RainbowKitProvider>
     </WagmiConfig>

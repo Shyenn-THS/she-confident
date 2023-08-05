@@ -3,7 +3,6 @@ import {
   ThirdwebSDK,
 } from '@thirdweb-dev/sdk';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { SC_ADDRESS } from '../../utils/constants';
 
 type Response = {
   state?: string;
@@ -22,7 +21,10 @@ const handler = async (
   const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, 'mumbai');
 
   // Load the NFT Collection via it's contract address using the SDK
-  const contract = await sdk.getContract(SC_ADDRESS, 'token');
+  const contract = await sdk.getContract(
+    process.env.NEXT_PUBLIC_SHECOIN_CONTRACT!,
+    'token'
+  );
 
   const userAddress: string = req.body.userAddress;
 

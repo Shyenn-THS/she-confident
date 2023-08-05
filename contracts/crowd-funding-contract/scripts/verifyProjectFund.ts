@@ -5,8 +5,8 @@ config();
 const { QUERY_ADDRESS } = process.env;
 
 async function main() {
-  //replace contractAddress with the one we saved above querying the 0th publishedProj
-  const contractAddress = QUERY_ADDRESS; //line5
+  const contractAddress = QUERY_ADDRESS;
+
   const args = [
     'SheConfident',
     'Women empowerment platform that focus on generating NFT for confident faces of women and help them gain confidence on camera and ability to list them on our marketplace to earn. SheConfident platform also provide them ability to list there project and get funds for there project with public funding.',

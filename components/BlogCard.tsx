@@ -1,19 +1,17 @@
 import React from 'react';
-import { BlogData } from '../typings';
-import { useBlogData } from '../utils/blogsHook/blogsHook';
-import { usePublishedBlog } from '../utils/blogsHook/blogsRead';
+import { BlogData } from '../interfaces/typings';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import { useBlogData, usePublishedBlog } from '../hooks/blogHooks';
 
 const BlogCard = ({ blogId }: { blogId: number }) => {
   const publishedBlogAddress = usePublishedBlog(blogId);
-  const data: BlogData = useBlogData(publishedBlogAddress!);
-
-  const { categories, description, image, owner, social, title } = data!;
-  if (!title || !description || !image || !owner || !social || !categories)
-    return null;
+  if (!publishedBlogAddress) return <></>;
+  const data = useBlogData(publishedBlogAddress);
+  const { categories, description, image, owner, social, title } =
+    data as BlogData;
 
   return (
     <motion.div
@@ -48,7 +46,7 @@ const BlogCard = ({ blogId }: { blogId: number }) => {
               </div>
 
               <div className="flex flex-wrap gap-y-2 md:gap-x-2 items-center">
-                {categories.split(' ').map((category, i) => {
+                {categories?.split(' ').map((category, i) => {
                   return (
                     <div
                       key={i}

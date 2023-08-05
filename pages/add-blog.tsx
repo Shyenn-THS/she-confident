@@ -3,13 +3,12 @@ import React, { ChangeEvent, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useAccount } from 'wagmi';
-import { BlogList } from '../blogscontract/src/types';
 import HeadingWithWallet from '../components/HeadingWithWallet';
 import Spinner from '../components/Spinner';
-import { BlogData } from '../typings';
-import { useBlogListWriter } from '../utils/blogsHook/blogsHook';
-import { DEBUG } from '../utils/constants';
-import StorageClient from '../utils/StorageClient';
+import { BlogList } from '../contracts/blogs-contract/src/types';
+import { useBlogListWriter } from '../hooks/blogHooks';
+import { BlogData } from '../interfaces/typings';
+import StorageClient from '../utils/storageClient';
 
 type Props = {};
 

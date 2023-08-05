@@ -1,23 +1,23 @@
-import { useProjectFunctionWriter } from '../utils/hooks';
 import { toWei } from '../utils/utilityFunctions';
 import { ConnectButton, useAddRecentTransaction } from '@rainbow-me/rainbowkit';
 import type { ChangeEvent, FormEvent } from 'react';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
-import { DEBUG } from '../utils/constants';
-import StorageClient from '../utils/StorageClient';
+import StorageClient from '../utils/storageClient';
 import toast from 'react-hot-toast';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Project } from '../crowdfunding/src/types';
 import Spinner from './Spinner';
 import { useRouter } from 'next/router';
-import { Campaign } from '../typings';
+import { Campaign } from '../interfaces/typings';
+import { Project } from '../contracts/crowd-funding-contract/src/types';
+import { useProjectFunctionWriter } from '../hooks/projectHooks';
 
 function CreateCampaign() {
   const [preview, setPreview] = useState<string>();
   const [image, setImage] = useState<File>();
   const { address } = useAccount();
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -26,7 +26,6 @@ function CreateCampaign() {
   } = useForm<Campaign>();
   const [processing, setProcessing] = useState(false);
 
-  // custom hook we made in hooks.ts for writing functions
   const { writeAsync, isError } = useProjectFunctionWriter('createProject');
 
   // rainbow kit txn handler
@@ -50,10 +49,7 @@ function CreateCampaign() {
     }
 
     try {
-      DEBUG && console.log({ title, amount, story });
       const amountToWei = toWei(amount.toString());
-      DEBUG && console.log('amountToWei: ', amountToWei);
-
       const imageURI = await new StorageClient().storeFiles(image);
 
       const functionArgs: Parameters<Project['createProject']> = [

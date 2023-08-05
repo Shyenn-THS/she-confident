@@ -6,6 +6,7 @@ type Props = {};
 
 const ForInvestorsBanner = (props: Props) => {
   const [close, setClose] = useState(false);
+
   return (
     <>
       {!close ? (

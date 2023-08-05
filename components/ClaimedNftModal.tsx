@@ -41,7 +41,7 @@ const ClaimedNFTModal = (props: Props) => {
           className="w-5 h-5 absolute top-5 right-5 cursor-pointer"
           onClick={closeModal}
         />
-        <img src={image} alt={name} className="h-96 object-cover" />
+        <img src={image!} alt={name as string} className="h-96 object-cover" />
         <h2 className="text-2xl font-semibold leading-tight text-center tracking-wide">
           {name}
         </h2>

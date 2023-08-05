@@ -42,10 +42,15 @@ export type KeyPointProps = {
   Icon: FC<IconBaseProps>;
 };
 
-type ModalContent = {
+export type ModalContent = {
   title: string;
   confirmTitle: string;
   action: any;
   description: string;
   possitive?: boolean;
 };
+
+export enum Gender {
+  FEMALE = 'Female',
+  MALE = 'Male',
+}

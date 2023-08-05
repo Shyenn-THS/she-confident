@@ -1,5 +1,5 @@
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
-import React, { useEffect } from 'react';
+import { collection, doc, setDoc } from 'firebase/firestore';
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import db from '../utils/firebase';
@@ -28,12 +28,11 @@ const Contact = () => {
       })
       .catch((err) => {
         toast.error('Sorry some error occured');
+      })
+      .finally(() => {
+        reset();
       });
   };
-
-  useEffect(() => {
-    reset();
-  }, [isSubmitSuccessful]);
 
   return (
     <main className="px-4">

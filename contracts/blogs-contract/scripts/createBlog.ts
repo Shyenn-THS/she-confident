@@ -7,9 +7,8 @@ const { PUBLIC_ADDRESS } = process.env;
 async function main() {
   const contract = await ethers.getContractAt(
     'BlogList',
-    //add the contract address that you just deployed in the last step
     PUBLIC_ADDRESS!
-  ); //line 6
+  );
 
   await contract.createBlog(
     'SheConfident',

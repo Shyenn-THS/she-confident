@@ -12,7 +12,7 @@ import {
   useNetworkMismatch,
   useOffers,
 } from '@thirdweb-dev/react';
-import { ListingType, NATIVE_TOKENS } from '@thirdweb-dev/sdk';
+import { ChainId, ListingType, NATIVE_TOKENS } from '@thirdweb-dev/sdk';
 import { ethers } from 'ethers';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -20,7 +20,6 @@ import Countdown from 'react-countdown';
 import toast from 'react-hot-toast';
 import GearLoading from '../../components/GearLoading';
 import Spinner from '../../components/Spinner';
-import network from '../../utils/network';
 
 const ListingPage = () => {
   const router = useRouter();
@@ -123,7 +122,7 @@ const ListingPage = () => {
 
   const byeNft = async () => {
     if (networkMismatch) {
-      switchNetwork && switchNetwork(network);
+      switchNetwork && switchNetwork(ChainId.Mumbai);
       return;
     }
 
@@ -153,7 +152,7 @@ const ListingPage = () => {
 
   const createBidOrOffer = async () => {
     if (networkMismatch) {
-      switchNetwork && switchNetwork(network);
+      switchNetwork && switchNetwork(ChainId.Mumbai);
       return;
     }
 
@@ -253,10 +252,10 @@ const ListingPage = () => {
   };
 
   return (
-    <main className="flex justify-between">
-      <div className="flex flex-col space-y-8">
-        <div className="h-fit mx-auto lg:mx-0 max-w-md lg:max-w-xl bg-gradient-to-tr from-froly to-mandys-pink">
-          <MediaRenderer className="h-92" src={listing.asset.image} />
+    <main className="grid grid-cols-1 lg:grid-cols-2 p-6 gap-10">
+      <div className="flex flex-col justify-center items-center space-y-8">
+        <div className="h-full w-full flex items-center justify-center bg-gradient-to-tr from-froly to-mandys-pink">
+          <MediaRenderer className="h-full w-full" src={listing.asset.image} />
         </div>
 
         {address === listing.sellerAddress ? (
@@ -275,7 +274,9 @@ const ListingPage = () => {
 
       <section className="space-y-8 pb-20 lg:pb-0 dark:text-text-color-primary">
         <div className="space-y-2">
-          <h1 className="text-xl font-bold">{listing.asset.name}</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">
+            {listing.asset.name}
+          </h1>
           <p className="text-text-color-tertiary">
             {listing.asset.description}
           </p>
@@ -295,7 +296,7 @@ const ListingPage = () => {
           </p>
 
           <p className="font-bold">Bye it Now Price:</p>
-          <p className="text-4xl font-bold">
+          <p className="text-2xl sm:text-3xl font-bold">
             {listing.buyoutCurrencyValuePerToken.displayValue}{' '}
             {listing.buyoutCurrencyValuePerToken.symbol}
           </p>
@@ -338,7 +339,7 @@ const ListingPage = () => {
                       className="text-sm italic"
                     >
                       {ethers.utils.formatEther(offer.totalOfferAmount)}{' '}
-                      {NATIVE_TOKENS[network].symbol}
+                      {NATIVE_TOKENS[ChainId.Mumbai].symbol}
                     </p>
 
                     {listing.sellerAddress === address && (

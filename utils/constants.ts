@@ -1,10 +1,3 @@
-export const PROJECT_CONTRACT_ADDRESS =
-  '0x59ED9a925e5EA4B47883457c5510dC8513D970e2';
-export const BLOGLIST_CONTRACT_ADDRESS =
-  '0x964e56Df76d80f5092c3Bf1A5Ed2e288E9303826';
-export const SC_ADDRESS = '0x26cf601afEBfCE6AB3aEC6B7761B5AeCe8f42047';
-export const DEBUG = false;
-
 export const links = [
   {
     name: 'Home',
@@ -45,5 +38,48 @@ export const links = [
   {
     name: 'Contact',
     path: '/contact',
+  },
+];
+
+export const social = ['https://shivangmishra.hashnode.dev/'];
+
+export const womens = [
+  {
+    name: 'Become Confident',
+    href: '/become-confident',
+  },
+  {
+    name: 'Add Projects',
+    href: '/add-project',
+  },
+  {
+    name: 'Confidence Guide',
+    href: '/confidence-guide',
+  },
+];
+
+export const company = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Support Us',
+    href: '/support-us',
+  },
+  {
+    name: 'Contact Us',
+    href: '/contact',
+  },
+];
+
+export const supportors = [
+  {
+    name: 'Bye NFTs',
+    href: '/nft-marketplace',
+  },
+  {
+    name: 'Invest in Women Projects',
+    href: '/empower',
   },
 ];

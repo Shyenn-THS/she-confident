@@ -1,23 +1,19 @@
 import { useEffect, useState } from 'react';
-import { DEBUG } from '../utils/constants';
-import { useTotalPublishedProjs } from '../utils/read';
 import Campaign from './Campaign';
 import { Result } from 'ethers/lib/utils.js';
+import { useTotalPublishedProjs } from '../hooks/projectHooks';
 
 function Campaigns() {
   const [totalPublishedProjs, setTotalPublishedProjs] = useState<
     number | undefined | Result
   >(undefined);
+
   const getProjects = useTotalPublishedProjs();
 
   useEffect(() => {
     setTotalPublishedProjs(getProjects);
   }, [getProjects]);
 
-  DEBUG &&
-    console.log('totalPublishedProjs: ', totalPublishedProjs?.toString());
-
-  // if totalPublishedProjs not present return nothing
   if (!totalPublishedProjs) {
     return <div className="font-bold text-xl mb-2">No Projects yet!</div>;
   }

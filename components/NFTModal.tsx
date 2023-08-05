@@ -3,7 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import Link from 'next/link';
 import React from 'react';
 import { fromWei } from '../utils/utilityFunctions';
-import { Campaign } from '../typings';
+import { Campaign } from '../interfaces/typings';
 
 type Props = {
   data: any;

@@ -1,8 +1,8 @@
 import { Result } from 'ethers/lib/utils.js';
 import React, { useEffect, useState } from 'react';
 import HeadingWithWallet from '../components/HeadingWithWallet';
-import { useTotalPublishedBlogs } from '../utils/blogsHook/blogsRead';
 import BlogCard from '../components/BlogCard';
+import { useTotalPublishedBlogs } from '../hooks/blogHooks';
 
 type Props = {};
 

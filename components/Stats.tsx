@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import CountUp from 'react-countup';
 import { useActiveListings, useContract } from '@thirdweb-dev/react';
-import { useTotalPublishedProjs } from '../utils/read';
 import { IconBaseProps } from 'react-icons/lib';
 import { BiNotepad } from 'react-icons/bi';
 import { FaDonate } from 'react-icons/fa';
 import { RiFundsFill } from 'react-icons/ri';
 import { MdCollections } from 'react-icons/md';
+import { useTotalPublishedProjs } from '../hooks/projectHooks';
 
 const Stats = () => {
   const { contract } = useContract(
