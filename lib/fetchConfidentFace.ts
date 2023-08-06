@@ -1,11 +1,9 @@
-import { Phrase } from '../interfaces/typings';
-
 const fetchConfidentFace = async (videoBlob: Blob) => {
   const formData = new FormData();
   formData.append('video', videoBlob);
 
   try {
-    const res = await await fetch(
+    const res = await fetch(
       `${process.env.NEXT_PUBLIC_FLASK_ENDPOINT}/process-video`,
       {
         method: 'POST',

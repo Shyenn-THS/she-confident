@@ -34,7 +34,10 @@ const handler = async (
   }
 
   // Initialize the Thirdweb SDK on the serverside using the private key on the mumbai network
-  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, 'mumbai');
+  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, 'mumbai', {
+    clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!,
+    secretKey: process.env.THIRDWEB_SECRET_KEY!,
+  });
 
   // Load the NFT Collection via it's contract address using the SDK
   const contract = await sdk.getContract(

@@ -103,12 +103,10 @@ const useBecomeConfidentStore = create<BecomeConfidentState>()(
 
       //Minting
       const tx = await contract!.signature.mint(signature!);
-      const receipt = tx.receipt;
-      const tokenid = tx.id;
-      //@ts-ignore
-      const nft = await tx.data();
+      const receipt = tx?.receipt;
+      const tokenid = tx?.id;
 
-      console.log(receipt, tokenid, nft);
+      console.log(receipt, tokenid);
       return true;
     },
 

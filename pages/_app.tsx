@@ -7,6 +7,7 @@ import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { polygonMumbai } from 'wagmi/chains';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from 'wagmi/providers/public';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import {
   connectorsForWallets,
@@ -56,6 +57,8 @@ const wagmiClient = createClient({
   provider,
 });
 
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
@@ -64,11 +67,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         chains={chains}
         coolMode
       >
-        <ThirdwebProvider activeChain="mumbai">
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThirdwebProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThirdwebProvider
+            clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID}
+            queryClient={queryClient}
+            activeChain="mumbai"
+          >
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThirdwebProvider>
+        </QueryClientProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   );
