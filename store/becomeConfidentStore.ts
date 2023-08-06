@@ -24,8 +24,7 @@ interface BecomeConfidentState {
   mintNft: (
     e: FormEvent<HTMLFormElement>,
     contract: NFTCollection | undefined,
-    address: string | undefined,
-    image: File | undefined
+    address: string | undefined
   ) => Promise<boolean>;
   convertSpeechToText: (recordedBlob: { blob: Blob }) => Promise<void>;
   recordVideo: (videoRef: MutableRefObject<HTMLVideoElement | null>) => void;
@@ -49,7 +48,7 @@ const useBecomeConfidentStore = create<BecomeConfidentState>()(
       set(() => ({ phrase, loading: false }));
     },
 
-    mintNft: async (e, contract, address, image) => {
+    mintNft: async (e, contract, address) => {
       e.preventDefault();
 
       const target = e.target as typeof e.target & {
@@ -59,6 +58,7 @@ const useBecomeConfidentStore = create<BecomeConfidentState>()(
 
       const description = target.description.value;
       const name = target.name.value;
+      const image = get().image;
 
       //Error handling
       if (!address) {

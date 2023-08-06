@@ -29,7 +29,6 @@ const BecomeConfident = () => {
     transcribed,
     preview,
     confetti,
-    image,
     loading,
     isProcessing,
     record,
@@ -42,7 +41,6 @@ const BecomeConfident = () => {
     state.transcribed,
     state.preview,
     state.confetti,
-    state.image,
     state.loading,
     state.isProcessing,
     state.record,
@@ -62,7 +60,7 @@ const BecomeConfident = () => {
 
   //Function to mint the NFTs
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    if (await mintNft(e, contract, address, image)) router.push('/create');
+    if (await mintNft(e, contract, address)) router.push('/create');
   };
 
   const handleRecordVideo = () => {

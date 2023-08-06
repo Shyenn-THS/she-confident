@@ -1,13 +1,12 @@
 import { HeartIcon } from '@heroicons/react/24/solid';
 import { MediaRenderer, useAddress, useContract } from '@thirdweb-dev/react';
-import { NFT, TransactionResultWithId } from '@thirdweb-dev/sdk';
+import { NFT, NFTMetadata } from '@thirdweb-dev/sdk';
 import { BigNumber } from 'ethers';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import ClaimedNFTModal from '../components/ClaimedNftModal';
 import Spinner from '../components/Spinner';
-import { SC_ADDRESS } from '../utils/constants';
 import { toWei } from '../utils/utilityFunctions';
 
 type Props = {};
@@ -26,13 +25,16 @@ const Claim = (props: Props) => {
     'signature-drop'
   );
 
-  const { contract: sheCoinContract } = useContract(SC_ADDRESS, 'token');
+  const { contract: sheCoinContract } = useContract(
+    process.env.NEXT_PUBLIC_SHECOIN_CONTRACT,
+    'token'
+  );
 
   const address = useAddress();
   const [processing, setProcessing] = useState(false);
   const [claimed, setClaimed] = useState<BigNumber>();
   const [totalSupply, setTotalSupply] = useState<BigNumber>();
-  const [unclaimedNfts, setUnclaimedNfts] = useState();
+  const [unclaimedNfts, setUnclaimedNfts] = useState<NFTMetadata[]>();
   const [nft, setNft] = useState<NFT>();
   const [modal, setModal] = useState(false);
   const [balance, setBalance] = useState<Balance>();
@@ -95,12 +97,13 @@ const Claim = (props: Props) => {
     }
 
     setProcessing(true);
+
     try {
       const quantity = 1; // how many unique NFTs you want to claim
 
       const tx = await signatureDropContract!.claim(quantity, {
         checkERC20Allowance: true,
-        currencyAddress: SC_ADDRESS,
+        currencyAddress: process.env.NEXT_PUBLIC_SHECOIN_CONTRACT,
       });
       const receipt = tx[0].receipt; // the transaction receipt
       const claimedTokenId = tx[0].id; // the id of the NFT claimed
@@ -159,7 +162,6 @@ const Claim = (props: Props) => {
 
         <div className="relative">
           <Image
-            //   fill
             height={500}
             width={500}
             src="/StarwarCollection.png"

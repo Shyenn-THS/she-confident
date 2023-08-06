@@ -2,14 +2,16 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import Layout from '../components/Layout';
+
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { polygonMumbai } from 'wagmi/chains';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
+import { publicProvider } from 'wagmi/providers/public';
+
 import {
   connectorsForWallets,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
-import { publicProvider } from 'wagmi/providers/public';
 import {
   injectedWallet,
   rainbowWallet,

@@ -209,5 +209,5 @@ export const useBlogData = (contractAddress: `0x${string}`) => {
     ownerWallet,
     timestamp,
     likes,
-  };
+  } as BlogData;
 };

@@ -8,12 +8,22 @@ type Props = {};
 
 const BlogPage = (props: Props) => {
   const router = useRouter();
-  const blogId = router.query.blogId;
-  const publishedBlogAddress = usePublishedBlog(parseInt(blogId as string));
+  const blogId = router.query.blogId as string;
+  const publishedBlogAddress = usePublishedBlog(parseInt(blogId));
   const data = useBlogData(publishedBlogAddress!);
 
-  const { categories, description, image, owner, social, title } = data;
-  if (!title || !description || !image || !owner || !social || !categories)
+  const { categories, description, image, owner, social, title, ownerWallet } =
+    data;
+
+  if (
+    !title ||
+    !description ||
+    !image ||
+    !owner ||
+    !social ||
+    !categories ||
+    !ownerWallet
+  )
     return <GearLoading loadingMessage="Loading Blog...." />;
 
   return (
@@ -23,8 +33,8 @@ const BlogPage = (props: Props) => {
           <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10">
             <Image
               className="object-cover object-center mx-auto"
-              src={data.image}
-              alt={data.title}
+              src={image}
+              alt={title}
               fill
             />
           </div>
@@ -32,7 +42,7 @@ const BlogPage = (props: Props) => {
           <section className="p-5 bg-froly-500 w-full">
             <div className="flex flex-col md:flex-row justify-between gap-y-5">
               <div className="">
-                <h1 className="text-4xl font-extrabold">{data.title}</h1>
+                <h1 className="text-4xl font-extrabold">{title}</h1>
                 <p>
                   {/* {new Date(post._createdAt).toLocaleDateString('en-US', {
                     day: 'numeric',
@@ -53,16 +63,16 @@ const BlogPage = (props: Props) => {
 
                 <div className="">
                   <h3 className="text-lg font-bold whitespace-nowrap">
-                    {data.owner}
+                    {owner}
                   </h3>
-                  <div className="">{data.ownerWallet}</div>
+                  <div className="">{ownerWallet}</div>
                 </div>
               </div>
             </div>
 
-            <h2 className="italic pt-10 line-clamp-3">{data.description}</h2>
+            <h2 className="italic pt-10 line-clamp-3">{description}</h2>
             <div className="flex items-center justify-end mt-auto space-x-2">
-              {data.categories.split(' ').map((category, id) => {
+              {categories.split(' ').map((category, id) => {
                 return (
                   <p
                     key={id}
@@ -79,14 +89,9 @@ const BlogPage = (props: Props) => {
 
       <div className="dark:text-text-color-primary space-y-8">
         <div className="h-96 w-full relative">
-          <Image
-            src={data.image}
-            alt={data.owner}
-            fill
-            className="object-cover"
-          />
+          <Image src={image} alt={owner} fill className="object-cover" />
         </div>
-        {data.description.split('\n').map((para, id) => {
+        {description.split('\n').map((para, id) => {
           return <p key={id}>{para}</p>;
         })}
       </div>
