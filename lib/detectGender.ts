@@ -1,4 +1,4 @@
-const detectGender = async (image: File) => {
+const detectGender = async (image: File): Promise<string | undefined> => {
   const formData = new FormData();
   formData.append('image', image);
 

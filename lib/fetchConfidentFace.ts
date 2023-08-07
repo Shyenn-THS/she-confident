@@ -1,4 +1,4 @@
-const fetchConfidentFace = async (videoBlob: Blob) => {
+const fetchConfidentFace = async (videoBlob: Blob): Promise<Blob | string> => {
   const formData = new FormData();
   formData.append('video', videoBlob);
 
@@ -11,26 +11,28 @@ const fetchConfidentFace = async (videoBlob: Blob) => {
       }
     );
 
-    const { image } = await res.json();
+    const { image }: { image: string } = await res.json();
 
-    if (!image)
+    if (!image) {
       throw new Error(
         'Sorry we were unable to find your confident face. Try being more happy while talking 😃'
       );
-
-    const image_bytes = atob(image);
-    const byteNumbers = new Array(image_bytes.length);
-    for (let i = 0; i < image_bytes.length; i++) {
-      byteNumbers[i] = image_bytes.charCodeAt(i);
     }
-    const byteArray = new Uint8Array(byteNumbers);
 
-    let imageConverted = new Blob([byteArray], { type: 'image/jpeg' });
+    const imageBlob = await base64ToBlob(image, 'image/jpeg');
 
-    return imageConverted;
+    return imageBlob;
   } catch (error) {
     return 'Sorry, we were unable to transcribe your speech.';
   }
 };
+
+async function base64ToBlob(
+  base64String: string,
+  mimeType: string
+): Promise<Blob> {
+  const response = await fetch(`data:${mimeType};base64,${base64String}`);
+  return await response.blob();
+}
 
 export default fetchConfidentFace;

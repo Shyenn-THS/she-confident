@@ -5,13 +5,9 @@ import {
 import type { NextApiRequest, NextApiResponse } from 'next';
 import multer from 'multer';
 
-type Phrase = {
-  signature: SignedPayload721WithQuantitySignature;
-};
-
 function runMiddleware(
   req: NextApiRequest & { [key: string]: any },
-  res: NextApiResponse<Phrase>,
+  res: NextApiResponse<SignedPayload721WithQuantitySignature>,
   fn: (...args: any[]) => void
 ): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -27,7 +23,7 @@ function runMiddleware(
 
 const handler = async (
   req: NextApiRequest & { [key: string]: any },
-  res: NextApiResponse
+  res: NextApiResponse<SignedPayload721WithQuantitySignature>
 ) => {
   if (!process.env.PRIVATE_KEY) {
     throw new Error("You're missing PRIVATE_KEY in your .env.local file.");
@@ -62,7 +58,7 @@ const handler = async (
     },
   });
 
-  res.status(200).send({ signature: signedPayload });
+  res.status(200).send(signedPayload);
 };
 
 export const config = {

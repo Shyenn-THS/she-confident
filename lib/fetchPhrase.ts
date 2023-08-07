@@ -1,6 +1,7 @@
 import fallbackPhrases from '../constants/fallbackPhrases.json';
+import { Phrase } from '../interfaces/typings';
 
-const fetchPhrase = async () => {
+const fetchPhrase = async (): Promise<Phrase> => {
   try {
     const res = await fetch('/api/phrases/get-phrase', {
       method: 'GET',

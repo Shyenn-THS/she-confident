@@ -1,6 +1,6 @@
 import { toWei } from '../utils/utilityFunctions';
-import { ConnectButton, useAddRecentTransaction } from '@rainbow-me/rainbowkit';
-import type { ChangeEvent, FormEvent } from 'react';
+import { useAddRecentTransaction } from '@rainbow-me/rainbowkit';
+import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
 import StorageClient from '../utils/storageClient';
@@ -14,7 +14,7 @@ import { useProjectFunctionWriter } from '../hooks/projectHooks';
 
 function CreateCampaign() {
   const [preview, setPreview] = useState<string>();
-  const [image, setImage] = useState<File>();
+  const [image, setImage] = useState<File | undefined>();
   const { address } = useAccount();
   const router = useRouter();
 
@@ -50,6 +50,7 @@ function CreateCampaign() {
 
     try {
       const amountToWei = toWei(amount.toString());
+      if (!image) throw Error('Please upload an image.');
       const imageURI = await new StorageClient().storeFiles(image);
 
       const functionArgs: Parameters<Project['createProject']> = [
@@ -64,7 +65,7 @@ function CreateCampaign() {
       ];
 
       if (!writeAsync)
-        throw Error('useProjectFunctionWriter Hook not working.');
+        throw Error('Something went wrong. Please try again later.');
       await writeAsync({
         recklesslySetUnpreparedArgs: functionArgs,
       }).then(() => {

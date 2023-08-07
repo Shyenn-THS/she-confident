@@ -1,9 +1,11 @@
+import { SignedPayload721WithQuantitySignature } from '@thirdweb-dev/sdk';
+
 const generateSignature = async (
   image: File,
   address: string,
   description: string,
   name: string
-) => {
+): Promise<SignedPayload721WithQuantitySignature | undefined> => {
   const formData = new FormData();
   formData.append('address', address);
   formData.append('image', image);
@@ -16,7 +18,7 @@ const generateSignature = async (
       body: formData,
     });
 
-    const { signature } = await res.json();
+    const signature = await res.json();
     return signature;
   } catch (error) {
     console.error(error);

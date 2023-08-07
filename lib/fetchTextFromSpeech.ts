@@ -1,6 +1,9 @@
-import { Phrase } from '../interfaces/typings';
+import { Phrase, Transcribed } from '../interfaces/typings';
 
-const fetchTextFromSpeech = async (audioBlob: Blob, phrase: Phrase) => {
+const fetchTextFromSpeech = async (
+  audioBlob: Blob,
+  phrase: Phrase
+): Promise<Transcribed> => {
   const formData = new FormData();
   formData.append('audio', audioBlob, 'audio.wav');
   formData.append('phrase', phrase?.phrase!);
@@ -15,9 +18,17 @@ const fetchTextFromSpeech = async (audioBlob: Blob, phrase: Phrase) => {
     );
 
     const transcribedText = await res.json();
+
+    if (!transcribedText.similarity) {
+      throw new Error("Sorry, we couldn't transcribe your speech.");
+    }
+
     return transcribedText;
-  } catch (error) {
-    return 'Sorry, we were unable to transcribe your speech.';
+  } catch (error: any) {
+    return {
+      text: error.message,
+      similarity: '0',
+    };
   }
 };
 

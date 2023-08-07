@@ -59,6 +59,12 @@ const useBecomeConfidentStore = create<BecomeConfidentState>()(
       const description = target.description.value;
       const name = target.name.value;
       const image = get().image;
+      const transcribed = get().transcribed;
+
+      if (!transcribed || parseFloat(transcribed.similarity) * 100 < 80) {
+        toast.error('Confidence score less than 80%. Please try again!');
+        return false;
+      }
 
       //Error handling
       if (!address) {
