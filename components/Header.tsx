@@ -12,7 +12,7 @@ import Logo from './Logo';
 import { useRouter } from 'next/router';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 import { HeartIcon } from '@heroicons/react/24/solid';
-import { links } from '../utils/constants';
+import links from '../constants/navbarLinks.json';
 import useUiStore from '../store/uiStore';
 
 const Header = () => {

@@ -65,7 +65,7 @@ const ConfidenceGuid = (props: Props) => {
               <img
                 src="./imgCG/Img5.svg"
                 alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-                className="rounded-lg bg-white h-32"
+                className="rounded-lg bg-white dark:bg-background-secondary h-32"
               />
             </div>
           </div>
@@ -74,7 +74,7 @@ const ConfidenceGuid = (props: Props) => {
             How to build confidence?
           </h6>
           <div className="flex flex-row ">
-            <div className="bg-white p-4 w-2/3">
+            <div className="bg-white dark:bg-background-secondary p-4 w-2/3">
               <p className=" ">
                 Everyone can learn how to be more confident in different,
                 powerful ways. What may work for some may not work for all, and
@@ -134,20 +134,20 @@ const ConfidenceGuid = (props: Props) => {
               <div className="flex flex-col h-full mx-auto rounded p-4">
                 <img
                   src="./imgCG/Img6.svg"
-                  className="rounded-lg bg-gray-100 h-40 object-cover"
+                  className="rounded-lg bg-white dark:bg-background-secondary h-40 object-cover"
                 />
               </div>
 
               <div className="flex flex-col h-full mx-auto rounded p-4 ">
                 <img
                   src="./imgCG/Img7.svg"
-                  className="rounded-lg bg-gray-100 h-40 object-cover"
+                  className="rounded-lg bg-white dark:bg-background-secondary h-40 object-cover"
                 />
               </div>
               <div className="flex flex-col h-full mx-auto rounded p-4">
                 <img
                   src="./imgCG/Img8.svg"
-                  className="rounded-lg bg-gray-100 h-40 object-cover"
+                  className="rounded-lg bg-white dark:bg-background-secondary h-40 object-cover"
                 />
               </div>
             </div>
@@ -157,7 +157,7 @@ const ConfidenceGuid = (props: Props) => {
           <h6 className=" text-2xl tracking-tight font-bold  mb-4">
             What are some tips to be more confident?
           </h6>
-          <div className="bg-white p-4 mb-4">
+          <div className="bg-white dark:bg-background-secondary p-4 mb-4">
             <p className=" ">
               Building your confidence takes time and involves plenty of ups and
               downs. As you put in the work toward being confident, here are a
@@ -216,21 +216,27 @@ const ConfidenceGuid = (props: Props) => {
             <div className="flex flex-col mx-auto rounded  ">
               <img
                 src="./imgCG/Img9.svg"
-                className="rounded-lg bg-white object-cover"
+                className="rounded-lg bg-white dark:bg-background-secondary object-cover"
               />
             </div>
             <div className="flex flex-col  mx-auto rounded  ">
-              <img src="./imgCG/Img10.svg" className="rounded-lg bg-white" />
+              <img
+                src="./imgCG/Img10.svg"
+                className="rounded-lg bg-white dark:bg-background-secondary"
+              />
             </div>
             <div className="flex flex-col mx-auto rounded  ">
-              <img src="./imgCG/Img11.svg" className="rounded-lg bg-white " />
+              <img
+                src="./imgCG/Img11.svg"
+                className="rounded-lg bg-white dark:bg-background-secondary "
+              />
             </div>
           </div>
           <hr className="mt-4 mb-4"></hr>
           <h6 className=" text-2xl tracking-tight font-bold  mb-4">
             What are the benefits of developing self-confidence?
           </h6>
-          <div className="bg-white p-4 ">
+          <div className="bg-white dark:bg-background-secondary p-4 ">
             <p className=" ">
               Why do people need to be confident in life? Improved
               self-confidence can add many benefits to your life that you may

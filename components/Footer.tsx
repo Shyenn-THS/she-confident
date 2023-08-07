@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import { company, social, supportors, womens } from '../utils/constants';
+import social from '../constants/socialLinks.json';
+import womens from '../constants/womenLinks.json';
+import company from '../constants/companyLinks.json';
+import supportors from '../constants/supportorsLinks.json';
 import Logo from './Logo';
 
 const Footer = () => {

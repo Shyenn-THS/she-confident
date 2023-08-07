@@ -3,7 +3,7 @@ import { useAddRecentTransaction } from '@rainbow-me/rainbowkit';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
-import StorageClient from '../utils/storageClient';
+import storageClient from '../utils/storageClient';
 import toast from 'react-hot-toast';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Spinner from './Spinner';
@@ -51,7 +51,7 @@ function CreateCampaign() {
     try {
       const amountToWei = toWei(amount.toString());
       if (!image) throw Error('Please upload an image.');
-      const imageURI = await new StorageClient().storeFiles(image);
+      const imageURI = await storageClient.storeFiles(image);
 
       const functionArgs: Parameters<Project['createProject']> = [
         title,

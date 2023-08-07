@@ -8,7 +8,7 @@ import Spinner from '../components/Spinner';
 import { BlogList } from '../contracts/blogs-contract/src/types';
 import { useBlogListWriter } from '../hooks/blogHooks';
 import { BlogData } from '../interfaces/typings';
-import StorageClient from '../utils/storageClient';
+import storageClient from '../utils/storageClient';
 
 type Props = {};
 
@@ -45,8 +45,14 @@ const AddBlog = (props: Props) => {
       return;
     }
 
+    if (!image) {
+      toast.error('Please upload an image.');
+      setProcessing(false);
+      return;
+    }
+
     try {
-      const imageURI = await new StorageClient().storeFiles(image);
+      const imageURI = await storageClient.storeFiles(image);
 
       const functionArgs: Parameters<BlogList['createBlog']> = [
         title,
@@ -65,11 +71,6 @@ const AddBlog = (props: Props) => {
         reset();
         router.push('/blogs');
       });
-
-      // addRecentTransaction({
-      //   hash: tx.hash,
-      //   description: 'Create Project Transaction',
-      // });
     } catch (error: any) {
       toast.error(error.message);
       setProcessing(false);

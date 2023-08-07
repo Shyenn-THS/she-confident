@@ -22,4 +22,6 @@ class StorageClient {
     return imageURI;
   }
 }
-export default StorageClient;
+
+const storageClient = new StorageClient();
+export default storageClient;
